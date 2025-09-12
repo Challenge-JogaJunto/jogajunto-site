@@ -1,0 +1,28 @@
+.input_container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  color: var(--texto);
+  gap: 0.4rem;
+  position: relative;
+  margin-top: 1.6rem; 
+  & select {
+    width: 100%;
+    border: 1px solid var(--container-border);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    outline: none;
+  }
+  & label {
+    position: absolute;
+    top: -1.6rem;
+  }
+  & .icon {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    right: 0;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+}

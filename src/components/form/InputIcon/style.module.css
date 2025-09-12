@@ -1,0 +1,31 @@
+.icons_container {
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  gap: 0.5rem;
+  font-size: 40px;
+  position: absolute;
+  background: var(--bg-container);
+  width: 400px;
+  height: 280px;
+  overflow: auto;
+  padding: 0.5rem;
+  top: -100px;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.icon_preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: var(--bg-fundo);
+}
+.icon {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: var(--texto);
+  font-size: 45px;
+}

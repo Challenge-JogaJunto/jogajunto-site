@@ -16,10 +16,10 @@
   align-items: center;
   color: var(--primaria);
   & h2 {
-    font-size: clamp(20px, 4vw, 24px);
+    font-size: clamp(18px, 3vw, 23px);
   }
   & img {
-    width: clamp(65px, 15vw, 85px);
+    width: clamp(65px, 15vw, 75px);
     height: auto;
   }
 }
@@ -54,8 +54,21 @@
 .menuItem {
   color: var(--secundaria);
   font-weight: 700;
-  &:hover{
+  &:hover {
     color: var(--secundaria-hover);
     background: var(--borda-container);
+  }
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  & img {
+    width: clamp(50px, 10vw, 55px);
+    border-radius: 50%;
+    border: var(--borda-container) solid 2px;
+    object-fit: cover;
   }
 }

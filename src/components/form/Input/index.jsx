@@ -5,7 +5,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { IMaskInput } from "react-imask";
 import styles from "./input.module.css";
 
-export default function Input({
+export default function InputField({
   value,
   label,
   placeholder = "",
@@ -40,13 +40,18 @@ export default function Input({
   return (
     <div
       className={styles.input_container}
-      style={{ width: "100%", maxWidth: width }}
+      style={{
+        width: "100%",
+        maxWidth: width,
+        marginTop: label ? "1.6rem" : "0.4rem",
+      }}
     >
-      <label htmlFor={id} className="link">
-        {label}
-        {required && <span className="text-[red]"> *</span>}
-      </label>
-
+      {label && (
+        <label htmlFor={id} className="link">
+          {label}
+          {required && <span className="text-[red]"> *</span>}
+        </label>
+      )}
       {type === "year" ? (
         <>
           <DatePicker

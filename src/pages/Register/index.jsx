@@ -2,6 +2,8 @@ import { useState } from "react";
 import Button from "../../components/form/Button";
 import Input from "../../components/form/Input";
 import useGlobal from "../../hooks/useGlobal";
+import { FormTools } from "../../utils/formTools";
+import { toast } from "react-toastify";
 export default function Register() {
   const { setUser, setUsers } = useGlobal();
   const [form, setForm] = useState({
@@ -14,13 +16,7 @@ export default function Register() {
     confirmSenha: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setForm((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
+  const { handleChange } = new FormTools(form, setForm);
 
   function criarConta(event) {
     event.preventDefault();
@@ -30,6 +26,18 @@ export default function Register() {
     const data = form;
     delete data.confirmSenha;
     data.nascimento = new Date(data.nascimento).toISOString();
+
+    if (data.nascimento) {
+      const nascimentoDate = new Date(data.nascimento);
+      const today = new Date();
+      const age = today.getFullYear() - nascimentoDate.getFullYear();
+      const m = today.getMonth() - nascimentoDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < nascimentoDate.getDate())) {
+        if (age - 1 < 12) return toast.error("Necessário ter ao menos 12 anos");
+      } else {
+        if (age < 12) return toast.error("Necessário ter ao menos 12 anos");
+      }
+    }
     data.img = null;
     setUser(data);
     setUsers((prev) => {
@@ -49,7 +57,7 @@ export default function Register() {
           Seja bem-vindo ao JogaJunto!
         </h3>
         <form onSubmit={criarConta} className="flex justify-center">
-          <div className="flex flex-wrap w-full gap-4 mt-5 justify-center">
+          <div className="flex flex-wrap w-full gap-4 mt-5">
             <Input
               label="Nome completo"
               type="text"
@@ -60,7 +68,6 @@ export default function Register() {
               required
             />
             <Input
-              width="220px"
               label="E-mail"
               type="email"
               id="email"
@@ -70,7 +77,7 @@ export default function Register() {
               required
             />
             <Input
-              width="220px"
+              width="200px"
               label="Data de nascimento"
               type="date"
               id="nascimento"
@@ -80,7 +87,7 @@ export default function Register() {
               required
             />
             <Input
-              width="220px"
+              width="250px"
               label="CPF"
               mask={"000.000.000-00"}
               id="cpf"
@@ -127,8 +134,13 @@ export default function Register() {
               required
             />
 
-            <Button variant={"primary"} width="100%" margin={"2rem 0"}>
-              Entrar
+            <Button
+              type={"submit"}
+              variant={"primary"}
+              width="100%"
+              margin={"2rem 0"}
+            >
+              Cadastrar
             </Button>
           </div>
         </form>

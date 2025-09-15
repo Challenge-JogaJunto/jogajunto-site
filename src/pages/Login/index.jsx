@@ -1,40 +1,77 @@
-import Input from "../../components/form/Input";
+import { useState } from "react";
 import Button from "../../components/form/Button";
-import { Link } from "react-router-dom";
+import Input from "../../components/form/Input";
+import useGlobal from "../../hooks/useGlobal";
+import { FormTools } from "../../utils/formTools";
+import { toast } from "react-toastify";
+
 export default function Login() {
+  const { setUser, users } = useGlobal();
+  const [form, setForm] = useState({
+    email: "",
+    senha: "",
+  });
+  const { handleChange } = new FormTools(form, setForm);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    try {
+      const user = users.find((u) => u.email === form.email);
+      if (user) {
+        if (user.senha === form.senha) {
+          setUser(user);
+          toast.success("Login realizado com sucesso!");
+        } else {
+          console.log("ola");
+          toast.error("Senha incorreta!");
+        }
+      } else {
+        toast.error("Usuário não encontrado!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
-      <div className="text-center mt-10">
+      <div className="text-center mt-5">
         <h1 className="title" style={{ fontSize: "48px" }}>
           ENTRAR
         </h1>
         <h3 className="link" style={{ fontSize: "24px" }}>
           Bem-vindo de volta!
         </h3>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="flex flex-wrap w-full gap-4 mt-5 justify-center">
             <Input
               label="E-mail"
               type="email"
-              name="email"
+              id="email"
               placeholder="E-mail"
-              value={""}
-              onChange={() => {}}
+              value={form.email}
+              onChange={handleChange}
+              required
             />
             <Input
               label="Senha"
               type="password"
-              name="senha"
+              id="senha"
               placeholder="Senha"
-              value={""}
-              onChange={() => {}}
+              value={form.senha}
+              onChange={handleChange}
+              required
             />
-            <Button variant={"primary"} width="100%" margin={"3rem 0"}>
+            <Button
+              type="submit"
+              variant={"primary"}
+              width="100%"
+              margin={"2rem 0"}
+            >
               Entrar
             </Button>
           </div>
         </form>
-        
       </div>
     </>
   );

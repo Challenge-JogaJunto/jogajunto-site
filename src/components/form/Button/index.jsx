@@ -16,6 +16,7 @@ export default function Button({
   isActive = true,
   variant,
   margin,
+  type = "button",
 }) {
   let buttonStyles = {
     width,
@@ -40,6 +41,7 @@ export default function Button({
 
   return (
     <button
+      type={type}
       className={`text ${styles.button} ${variant ? styles[variant] : ""}`}
       style={buttonStyles}
       onClick={onClick}

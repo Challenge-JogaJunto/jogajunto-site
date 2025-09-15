@@ -16,7 +16,7 @@ export default function RegisterLayout() {
   return (
     <>
       <main
-        className="flex max-h-[fit-content] lg:max-h-none lg:min-h-[100vh] flex-wrap-reverse lg:flex-nowrap"
+        className="flex lg:max-h-none min-h-[100vh] flex-wrap-reverse flex-reverse-col lg:flex-row lg:flex-nowrap"
         style={{
           backgroundImage: "url('./imgs/fundo-estilizado.png')",
           backgroundSize: "cover",
@@ -24,7 +24,7 @@ export default function RegisterLayout() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="flex flex-col justify-center min-h-[80vh] lg:min-h-screen  rounded-t-4xl lg:rounded-none w-full bg-white p-6 shadow-md lg:max-w-lg">
+        <div className="flex flex-col justify-center mt-auto min-h-[fit-content] lg:min-h-screen rounded-t-4xl lg:rounded-none w-full bg-white p-6 shadow-md lg:max-w-[40%]">
           <Link
             to="/"
             className="link absolute top-10 left-6 flex items-center gap-2 text-[var(--primaria)] flex hover:gap-3 transition-all"

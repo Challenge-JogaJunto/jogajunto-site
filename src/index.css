@@ -30,6 +30,8 @@
     font-family: var(--ff-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    height: 100dvh;
+    height: 100vh;
   }
 }
 

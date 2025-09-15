@@ -16,7 +16,7 @@ export const GlobalProvider = ({ children }) => {
     } else {
       setUsers(JSON.parse(localStorage.getItem("users")) || []);
     }
-  }, [users]);
+  }, []);
 
   useEffect(() => {
     if (theme === "dark") {

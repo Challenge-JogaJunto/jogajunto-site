@@ -7,7 +7,6 @@ import defaultUser from "../../assets/defaultUser.jpg";
 import logotipo from "../../assets/logo-jogajunto.png";
 import useGlobal from "../../hooks/useGlobal";
 import useSearch from "../../hooks/useSearch";
-import Button from "../form/Button";
 import InputField from "../form/Input";
 import styles from "./header.module.css";
 
@@ -67,10 +66,10 @@ export default function Header() {
             </li>
             <Menu>
               <MenuButton className="ml-4 ">
-                <Button variant={"primary"}>
+                <div className={`${styles.createButton} ${styles.primary} flex items-center gap-2`}>
                   Criar
                   <FaPlus />
-                </Button>
+                </div>
               </MenuButton>
               <MenuItems
                 anchor="bottom"

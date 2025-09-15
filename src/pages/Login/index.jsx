@@ -16,20 +16,23 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
+      console.log(users);
+
       const user = users.find((u) => u.email === form.email);
+
       if (user) {
         if (user.senha === form.senha) {
           setUser(user);
           toast.success("Login realizado com sucesso!");
         } else {
-          console.log("ola");
           toast.error("Senha incorreta!");
         }
       } else {
         toast.error("Usuário não encontrado!");
       }
     } catch (error) {
-      console.log(error);
+      toast.error("Ocorreu um erro inesperado!");
+      console.error(error);
     }
   };
 

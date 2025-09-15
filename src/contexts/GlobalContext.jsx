@@ -11,10 +11,10 @@ export const GlobalProvider = ({ children }) => {
   const [users, setUsers] = useState(usersData || []);
 
   useEffect(() => {
-    if (localStorage.getItem("users") === null) {
-      localStorage.setItem("users", JSON.stringify(usersData));
+    if (!localStorage.getItem("allUsers")) {
+      localStorage.setItem("allUsers", JSON.stringify(usersData));
     } else {
-      setUsers(JSON.parse(localStorage.getItem("users")) || []);
+      setUsers(JSON.parse(localStorage.getItem("allUsers")) || []);
     }
   }, []);
 

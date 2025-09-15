@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
   }
 
   :root {
@@ -16,8 +17,8 @@
     --texto: #333333;
     --borda-container: #e0e0e0;
     --container: #fff;
-    --ff-text: "Lato", Arial;
-    --ff-link: "Poppins", sans-serif;
+    --ff-text: "Poppins", Arial;
+    --ff-link: "Lato", Arial;
     --ff-title: "Poppins", Verdana;
     --ff-subtitle: "Lato", Arial;
     --max-content: 1200px;
@@ -34,7 +35,7 @@
 .title {
   font-weight: bold;
   font-family: var(--ff-title);
-  font-size: clamp(28px, 5vw, 32px);
+  font-size: clamp(29px, 10vw, 36px);
 }
 .subtitle {
   font-weight: 700;
@@ -43,13 +44,13 @@
 }
 
 .link {
-  font-weight: 400;
+  font-weight: 500;
   font-family: var(--ff-link);
   font-size: clamp(14px, 3.5vw, 16px);
 }
 
 .text {
-  font-weight: bold;
+  font-weight: 400;
   font-family: var(--ff-text);
   font-size: clamp(13px, 3vw, 14px);
 }

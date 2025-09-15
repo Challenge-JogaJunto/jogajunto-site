@@ -4,6 +4,7 @@
   border: var(--borda-container) solid 2px;
   & nav {
     margin: 0 auto;
+    padding: 0.5rem 0;
     max-width: var(--max-content);
     display: flex;
     justify-content: space-between;
@@ -17,9 +18,10 @@
   color: var(--primaria);
   & h2 {
     font-size: clamp(18px, 3vw, 23px);
+    margin-left: .7rem;
   }
   & img {
-    width: clamp(65px, 15vw, 75px);
+    width: clamp(55px, 20vw, 65px);
     height: auto;
   }
 }

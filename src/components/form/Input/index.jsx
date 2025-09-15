@@ -47,7 +47,7 @@ export default function InputField({
       }}
     >
       {label && (
-        <label htmlFor={id} className="link">
+        <label htmlFor={id} className="link " style={{ fontWeight: "700" }}>
           {label}
           {required && <span className="text-[red]"> *</span>}
         </label>

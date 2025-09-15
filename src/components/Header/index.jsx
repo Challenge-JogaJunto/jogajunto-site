@@ -10,6 +10,7 @@ import useSearch from "../../hooks/useSearch";
 import Button from "../form/Button";
 import InputField from "../form/Input";
 import styles from "./header.module.css";
+
 export default function Header() {
   const { search, setSearch, makeSearch } = useSearch();
   const { user } = useGlobal();

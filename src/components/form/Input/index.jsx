@@ -21,6 +21,7 @@ export default function InputField({
   ref,
   maxLength,
   minLength,
+  error = undefined,
 }) {
   const [view, setView] = useState("password");
   const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +40,7 @@ export default function InputField({
   }
   return (
     <div
-      className={styles.input_container}
+      className={`${styles.input_container} ${error ? styles.error : ""}`}
       style={{
         width: "100%",
         maxWidth: width,
@@ -128,6 +129,9 @@ export default function InputField({
         >
           {view === "password" ? <FaEye /> : <FaEyeSlash />}
         </div>
+      )}
+      {error && (
+        <span className={`link text-[red] text-[12px] mt-1 ${styles.errorMessage}`}>{error}</span>
       )}
     </div>
   );

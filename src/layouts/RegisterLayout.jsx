@@ -1,7 +1,17 @@
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { FaArrowLeft } from "react-icons/fa";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import useGlobal from "../hooks/useGlobal";
 
 export default function RegisterLayout() {
   const pathname = useLocation().pathname;
+  const navigate = useNavigate();
+  const { user } = useGlobal();
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user]);
 
   return (
     <>
@@ -14,7 +24,14 @@ export default function RegisterLayout() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="min-h-[80vh] lg:min-h-screen  rounded-t-4xl lg:rounded-none w-full bg-white p-6 shadow-md lg:max-w-lg">
+        <div className="flex flex-col justify-center min-h-[80vh] lg:min-h-screen  rounded-t-4xl lg:rounded-none w-full bg-white p-6 shadow-md lg:max-w-lg">
+          <Link
+            to="/"
+            className="link absolute top-10 left-6 flex items-center gap-2 text-[var(--primaria)] flex hover:gap-3 transition-all"
+          >
+            <FaArrowLeft />
+            Voltar
+          </Link>
           <Outlet />
           <Link
             to={pathname === "/register" ? "/login" : "/register"}

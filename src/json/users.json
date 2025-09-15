@@ -1,0 +1,38 @@
+[
+  {
+    "nome": "Thomaz",
+    "email": "",
+    "cpf": "123.456.789-00",
+    "nascimento": "2000-01-01T00:00:00.000Z",
+    "telefone": "(11) 91234-5678",
+    "senha": "password123",
+    "img": null
+  },
+  {
+    "nome": "Sophia",
+    "email": "",
+    "cpf": "123.456.789-00",
+    "nascimento": "2000-01-01T00:00:00.000Z",
+    "telefone": "(11) 91234-5678",
+    "senha": "password123",
+    "img": null
+  },
+  {
+    "nome": "Teste",
+    "email": "",
+    "cpf": "123.456.789-00",
+    "nascimento": "2000-01-01T00:00:00.000Z",
+    "telefone": "(11) 91234-5678",
+    "senha": "password123",
+    "img": null
+  },
+  {
+    "nome": "Marcos",
+    "email": "",
+    "cpf": "123.456.789-00",
+    "nascimento": "2000-01-01T00:00:00.000Z",
+    "telefone": "(11) 91234-5678",
+    "senha": "password123",
+    "img": null
+  }
+]

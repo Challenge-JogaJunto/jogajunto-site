@@ -124,7 +124,10 @@ export default function Header() {
             <p className="link mr-4">
               {user ? user.nome.split(" ")[0] : "Entrar"}
             </p>
-            <img src={user ? user.img : defaultUser} alt="Imagem do usuário" />
+            <img
+              src={user ? user.img ?? defaultUser : defaultUser}
+              alt="Imagem do usuário"
+            />
           </Link>
         </nav>
       </header>

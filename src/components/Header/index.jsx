@@ -15,11 +15,17 @@ export default function Header({ links }) {
   const { search, setSearch, makeSearch } = useSearch();
   const { user, screenWidth } = useGlobal();
   const [opened, setOpened] = useState(false);
-  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
+  const menuLateralRef = useRef(null);
 
   useEffect(() => {
     function handleClickFora(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (
+        menuLateralRef.current &&
+        !menuLateralRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
         setOpened(false);
       }
     }
@@ -38,8 +44,8 @@ export default function Header({ links }) {
           {screenWidth < 1024 && (
             <>
               <button
+                ref={buttonRef}
                 onClick={() => setOpened(!opened)}
-                ref={menuRef}
                 className="p-5 text-[var(--texto)] hover:text-[var(--primaria)] transition cursor-pointer"
               >
                 <FaBarsStaggered size={25} />
@@ -160,7 +166,7 @@ export default function Header({ links }) {
       {screenWidth < 1024 && (
         <div
           className={`${styles.menuLateral} ${opened ? styles.active : ""} `}
-          ref={menuRef}
+          ref={menuLateralRef}
         >
           <nav>
             <form

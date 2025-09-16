@@ -11,12 +11,23 @@ export const GlobalProvider = ({ children }) => {
   const [users, setUsers] = useState(usersData || []);
 
   useEffect(() => {
-    if (!localStorage.getItem("allUsers")) {
-      localStorage.setItem("allUsers", JSON.stringify(usersData));
+    const local = localStorage.getItem("allUsers");
+    if (local) {
+      setUsers(JSON.parse(local));
     } else {
-      setUsers(JSON.parse(localStorage.getItem("allUsers")) || []);
+      localStorage.setItem("allUsers", JSON.stringify(users));
     }
   }, []);
+
+  useEffect(() => console.log(users), [users]);
+
+  const addUser = (newUser) => {
+    if (newUser) {
+      let newUsers = [...users, newUser];
+      setUsers(newUsers);
+      localStorage.setItem("allUsers", JSON.stringify(newUsers));
+    }
+  };
 
   useEffect(() => {
     if (theme === "dark") {
@@ -38,6 +49,7 @@ export const GlobalProvider = ({ children }) => {
   const globalValue = {
     user,
     setUser,
+    addUser,
     theme,
     setTheme,
     users,

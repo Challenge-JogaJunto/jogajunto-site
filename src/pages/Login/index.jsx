@@ -16,8 +16,6 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      console.log(users);
-
       const user = users.find((u) => u.email === form.email);
 
       if (user) {

@@ -3,9 +3,8 @@ import Button from "../../components/form/Button";
 import Input from "../../components/form/Input";
 import useGlobal from "../../hooks/useGlobal";
 import { FormTools } from "../../utils/formTools";
-import { toast } from "react-toastify";
 export default function Register() {
-  const { setUser, setUsers } = useGlobal();
+  const { setUser, addUser, users } = useGlobal();
   const [form, setForm] = useState({
     nome: "",
     email: "",
@@ -15,14 +14,56 @@ export default function Register() {
     senha: "",
     confirmSenha: "",
   });
+  const [formError, setFormError] = useState({
+    nome: null,
+    email: null,
+    cpf: null,
+    nascimento: null,
+    telefone: null,
+    senha: null,
+    confirmSenha: null,
+  });
 
   const { handleChange } = new FormTools(form, setForm);
 
   function criarConta(event) {
     event.preventDefault();
+
     if (form.senha !== form.confirmSenha) {
-      return;
+      return () => {
+        return setFormError({
+          ...formError,
+          confirmSenha: "As senhas não coincidem",
+          senha: "As senhas não coincidem",
+        });
+      };
     }
+
+    const emailExists = users.find((u) => u.email === form.email);
+    const cpfExists = users.find((u) => u.cpf === form.cpf);
+    const telefoneExists = users.find((u) => u.telefone === form.telefone);
+
+    if (emailExists) {
+      setFormError({
+        ...formError,
+        email: "E-mail já utilizado!",
+      });
+    }
+    if (cpfExists) {
+      setFormError({
+        ...formError,
+        cpf: "CPF já utilizado!",
+      });
+    }
+    if (telefoneExists) {
+      setFormError({
+        ...formError,
+        telefone: "Telefone já utilizado!",
+      });
+    }
+
+    if (emailExists || telefoneExists || cpfExists) return;
+
     const data = form;
     delete data.confirmSenha;
     data.nascimento = new Date(data.nascimento).toISOString();
@@ -33,18 +74,23 @@ export default function Register() {
       const age = today.getFullYear() - nascimentoDate.getFullYear();
       const m = today.getMonth() - nascimentoDate.getMonth();
       if (m < 0 || (m === 0 && today.getDate() < nascimentoDate.getDate())) {
-        if (age - 1 < 12) return toast.error("Necessário ter ao menos 12 anos");
+        if (age - 1 < 12)
+          return setFormError({
+            ...formError,
+            nascimento: "Necessário ter ao menos 12 anos",
+          });
       } else {
-        if (age < 12) return toast.error("Necessário ter ao menos 12 anos");
+        if (age < 12)
+          return setFormError({
+            ...formError,
+            nascimento: "Necessário ter ao menos 12 anos",
+          });
       }
     }
+
     data.img = null;
     setUser(data);
-    setUsers((prev) => {
-      const updatedUsers = [...prev, data];
-      localStorage.setItem("users", JSON.stringify(updatedUsers));
-      return updatedUsers;
-    });
+    addUser(data);
   }
 
   return (
@@ -66,6 +112,8 @@ export default function Register() {
               value={form.nome}
               onChange={handleChange}
               required
+              error={formError.nome}
+              minLength={3}
             />
             <Input
               label="E-mail"
@@ -75,6 +123,7 @@ export default function Register() {
               value={form.email}
               onChange={handleChange}
               required
+              error={formError.email}
             />
             <Input
               width="200px"
@@ -85,6 +134,7 @@ export default function Register() {
               value={form.nascimento}
               onChange={handleChange}
               required
+              error={formError.nascimento}
             />
             <Input
               width="250px"
@@ -97,6 +147,7 @@ export default function Register() {
                 handleChange({ target: { name: "cpf", value: val } })
               }
               required
+              error={formError.cpf}
             />
             <Input
               width="220px"
@@ -109,6 +160,7 @@ export default function Register() {
                 handleChange({ target: { name: "telefone", value: val } })
               }
               required
+              error={formError.telefone}
             />
             <Input
               label="Senha"
@@ -118,6 +170,7 @@ export default function Register() {
               value={form.senha}
               required
               onChange={handleChange}
+              error={formError.senha}
             />
             <Input
               error={

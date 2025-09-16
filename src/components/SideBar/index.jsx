@@ -13,10 +13,10 @@ export default function SideBar() {
 
   return (
     <>
-      <div className="w-full">
+      <div className="w-full left">
         <ContainerDiv
           className={
-            "w-full left flex flex-col items-center text-center p-4 py-6 mb-4"
+            "w-full flex flex-col items-center text-center p-4 py-6 mb-2"
           }
         >
           <Link to="/profile" className={styles.user}>
@@ -31,7 +31,7 @@ export default function SideBar() {
           {user && (
             <>
               <hr
-                className="w-full my-5"
+                className="w-full my-2"
                 style={{ borderColor: "var(--primaria)" }}
               />
               <p className="text">{user.posicao ?? "Nenhuma posição"}</p>
@@ -44,13 +44,13 @@ export default function SideBar() {
         </ContainerDiv>
         <ContainerDiv
           className={
-            "w-full left flex flex-col items-center text-center p-4 py-6"
+            "w-full left flex flex-col items-center text-center p-4"
           }
         >
           <div className="w-full">
             <Link
               to={""}
-              className="flex gap-3 link w-full py-4 px-1 hover:bg-[var(--borda-container)] hover:text-[var(--primaria)] rounded-sm transition"
+              className="flex gap-3 link w-full py-4 px-3 hover:bg-[var(--borda-container)] hover:text-[var(--primaria)] rounded-sm transition"
             >
               <FaRegCalendar size={20} />
               Eventos
@@ -59,7 +59,7 @@ export default function SideBar() {
           <div className="w-full">
             <Link
               to={""}
-              className="flex gap-3 link w-full py-4 px-1 hover:bg-[var(--borda-container)] hover:text-[var(--primaria)] rounded-sm transition"
+              className="flex gap-3 link w-full py-4 px-3 hover:bg-[var(--borda-container)] hover:text-[var(--primaria)] rounded-sm transition"
             >
               <FaMedal size={20} />
               Campeonatos
@@ -68,7 +68,7 @@ export default function SideBar() {
           <div className="w-full">
             <Link
               to={""}
-              className="flex gap-3 link w-full py-4 px-1 hover:bg-[var(--borda-container)] hover:text-[var(--primaria)] rounded-sm transition"
+              className="flex gap-3 link w-full py-4 px-3 hover:bg-[var(--borda-container)] hover:text-[var(--primaria)] rounded-sm transition"
             >
               <FaRegNoteSticky size={20} />
               Peneiras

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import SearchProvider from "../contexts/SearchContext";
@@ -25,12 +25,13 @@ export default function RootLayout() {
     },
   ];
   const { screenWidth } = useGlobal();
+  const { pathname } = useLocation();
   return (
     <>
       <SearchProvider>
         <Header links={links} />
         <main className="main-content">
-          {screenWidth >= 1024 && <SideBar />}
+          {screenWidth >= 1024 && pathname === "/" && <SideBar />}
 
           <div className="content">
             <Outlet />

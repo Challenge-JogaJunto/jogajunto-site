@@ -1,0 +1,6 @@
+.footer {
+  background: var(--container);
+  margin-top: auto;
+  padding: 1rem;
+  border-top: 1px solid var(--borda-container);
+}

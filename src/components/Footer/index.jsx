@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <>
       <footer className={`${styles.footer}`}>
-        <div className="content w-full max-w-[var(--max-content)] flex flex-col items-center gap-10">
+        <div className="content w-full max-w-[var(--max-content)] flex flex-col items-center gap-10 mx-auto">
           <div className="flex flex-col items-center gap-3">
             <img
               src="./imgs/logo-jogajunto.png"

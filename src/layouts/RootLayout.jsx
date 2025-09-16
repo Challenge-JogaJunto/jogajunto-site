@@ -1,8 +1,9 @@
 import { Outlet } from "react-router-dom";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import SearchProvider from "../contexts/SearchContext";
-import Footer from "../components/Footer";
-import { useEffect, useRef, useState } from "react";
+import SideBar from "../components/SideBar";
+import useGlobal from "../hooks/useGlobal";
 
 export default function RootLayout() {
   const links = [
@@ -23,16 +24,18 @@ export default function RootLayout() {
       url: "/planos",
     },
   ];
-
-
+  const { screenWidth } = useGlobal();
   return (
     <>
       <SearchProvider>
         <Header links={links} />
         <main className="main-content">
+          {screenWidth >= 1024 && <SideBar />}
+
           <div className="content">
             <Outlet />
           </div>
+          <div className="right"></div>
         </main>
         <Footer />
       </SearchProvider>

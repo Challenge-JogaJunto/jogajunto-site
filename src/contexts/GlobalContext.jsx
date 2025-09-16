@@ -6,7 +6,13 @@ export const GlobalProvider = ({ children }) => {
     const storedUser = sessionStorage.getItem("user");
     return storedUser ? JSON.parse(storedUser) : null;
   });
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [users, setUsers] = useState(usersData || []);
 
@@ -54,6 +60,7 @@ export const GlobalProvider = ({ children }) => {
     setTheme,
     users,
     setUsers,
+    screenWidth,
   };
   return (
     <GlobalContext.Provider value={globalValue}>

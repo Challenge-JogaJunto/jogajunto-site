@@ -4,7 +4,7 @@
   border: var(--borda-container) solid 2px;
   & nav {
     margin: 0 auto;
-    padding: 0.5rem 0;
+    padding: 0.8rem 0.4rem;
     max-width: var(--max-content);
     display: flex;
     justify-content: space-between;
@@ -95,5 +95,20 @@
     &:hover {
       background-color: var(--secundaria-hover);
     }
+  }
+}
+
+.menuLateral {
+  position: fixed;
+  left: -120%;
+  height: 100vh;
+  padding: 1rem;
+  width: 100%;
+  max-width: 420px;
+  background: var(--container);
+  border-right: 1px solid var(--borda-container);
+  transition: left 0.6s;
+  &.active {
+    left: 0;
   }
 }

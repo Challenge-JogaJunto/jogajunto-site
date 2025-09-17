@@ -2,8 +2,7 @@
 
 # Joga Junto
 
-Clique aqui para acessar o 👉 [Joga Junto](https://www.jogajunto.com)  
-
+Clique aqui para acessar o 👉 [Joga Junto](https://jogajunto-site.vercel.app/)
 ## Visão do produto 👀
 > Ser uma plataforma de referência que transforma e democratiza o futebol feminino, conectando de forma ágil clubes, jogadoras e olheiros, organizando e divulgando eventos, campeonatos e peneiras em um único hub digital — com foco especial em meninas e atletas de baixa renda.
 

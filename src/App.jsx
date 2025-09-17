@@ -1,11 +1,15 @@
 import { RouterProvider } from "react-router-dom";
-import "./App.css";
 import router from "./routes";
+import { GlobalProvider } from "./contexts/GlobalContext";
+import { ToastContainer } from "react-toastify";
+
 function App() {
   return (
     <>
-      
-      <RouterProvider router={router} />
+      <ToastContainer />
+      <GlobalProvider>
+        <RouterProvider router={router} />
+      </GlobalProvider>
     </>
   );
 }

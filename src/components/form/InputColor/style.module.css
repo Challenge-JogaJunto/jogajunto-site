@@ -1,0 +1,9 @@
+.inputColor {
+  display: flex;
+  flex-direction: column;
+  & input {
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+}

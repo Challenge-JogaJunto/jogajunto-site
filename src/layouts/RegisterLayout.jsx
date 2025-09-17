@@ -24,7 +24,7 @@ export default function RegisterLayout() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="flex flex-col justify-center mt-auto min-h-[fit-content] lg:min-h-screen rounded-t-4xl lg:rounded-none w-full bg-white p-6 shadow-md lg:max-w-[40%]">
+        <div className="flex flex-col justify-center mt-auto min-h-[fit-content] lg:min-h-screen rounded-t-4xl lg:rounded-none w-full bg-white p-6 shadow-md lg:max-w-[40%] relative">
           <Link
             to="/"
             className="link absolute top-10 left-6 flex items-center gap-2 text-[var(--primaria)] flex hover:gap-3 transition-all"

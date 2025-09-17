@@ -79,9 +79,9 @@ export default function Header({ links }) {
                 />
               </form>
               <ul className={`${styles.menu}`}>
-                {links.map((link) => {
+                {links.map((link, i) => {
                   return (
-                    <li>
+                    <li key={`navLink-desktop${i}`}>
                       <Link to={link.url} className="link">
                         {link.name}
                       </Link>
@@ -188,9 +188,9 @@ export default function Header({ links }) {
               />
             </form>
             <ul className={`flex flex-col my-4`}>
-              {links.map((link) => {
+              {links.map((link, i) => {
                 return (
-                  <li className="w-full">
+                  <li className="w-full" key={`navLink-mobile${i}`}>
                     <Link
                       to={link.url}
                       className="flex link w-full py-4 px-1 hover:bg-[var(--borda-container)] hover:text-[var(--primaria)] rounded-sm transition"

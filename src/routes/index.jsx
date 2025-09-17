@@ -4,13 +4,14 @@ import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import RegisterLayout from "../layouts/RegisterLayout";
 import Register from "../pages/Register";
+import Home from "../pages/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
-      { index: true, element: <>olá</> },
+      { index: true, element: <Home /> },
       { path: "search", element: <></> },
       { path: "profile", element: <Profile /> },
     ],

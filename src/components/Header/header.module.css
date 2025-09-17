@@ -108,6 +108,7 @@
   background: var(--container);
   border-right: 1px solid var(--borda-container);
   transition: left 0.6s;
+  z-index: 1000;
   &.active {
     left: 0;
   }

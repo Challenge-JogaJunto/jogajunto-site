@@ -20,7 +20,7 @@ export default function TextArea({
       className={styles.input_container}
       style={{ width: "100%", maxWidth: width, height: height }}
     >
-      <label htmlFor={id} className="link">
+      <label htmlFor={id} className="link" style={{ fontWeight: "700" }}>
         {label}
         {required && <span className="text-[red]"> *</span>}
       </label>

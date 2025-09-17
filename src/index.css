@@ -22,7 +22,7 @@
     --ff-link: "Raleway", Times New Roman;
     --ff-title: "Poppins", Verdana;
     --ff-subtitle: "Lato", Arial;
-    --max-content: 1200px;
+    --max-content: 1240px;
   }
   body {
     background-color: var(--fundo);
@@ -69,7 +69,6 @@
 
 .main-content {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   margin: 1rem auto;
   gap: 1rem;

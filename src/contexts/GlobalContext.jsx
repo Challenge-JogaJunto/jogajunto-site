@@ -25,8 +25,6 @@ export const GlobalProvider = ({ children }) => {
     }
   }, []);
 
-  useEffect(() => console.log(users), [users]);
-
   const addUser = (newUser) => {
     if (newUser) {
       let newUsers = [...users, newUser];

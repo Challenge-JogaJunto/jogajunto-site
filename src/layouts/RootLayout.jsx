@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import SearchProvider from "../contexts/SearchContext";
 import SideBar from "../components/SideBar";
 import useGlobal from "../hooks/useGlobal";
+import ContainerDiv from "../components/Container";
 
 export default function RootLayout() {
   const links = [
@@ -36,7 +37,29 @@ export default function RootLayout() {
           <div className="content">
             <Outlet />
           </div>
-          <div className="right"></div>
+          {screenWidth >= 1024 && pathname === "/" && (
+            <ContainerDiv className="right p-4 h-[fit-content]">
+              <h2 className="subtitle">Joga Junto Noticias</h2>
+              <div className="flex flex-col gap-3">
+                <div className="item">
+                  <p className="link">Corinthians abre as incrições p...</p>
+                  <p className="text">há 13 h</p>
+                </div>
+                <div className="item">
+                  <p className="link">Seleção brasileira feminina ga...</p>
+                  <p className="text">há 13 h</p>
+                </div>
+                <div className="item">
+                  <p className="link">A maior artilheira da história d...</p>
+                  <p className="text">há 13 h</p>
+                </div>
+                <div className="item">
+                  <p className="link">CBF divulga datas dos campeo...</p>
+                  <p className="text">há 13 h</p>
+                </div>
+              </div>
+            </ContainerDiv>
+          )}
         </main>
         <Footer />
       </SearchProvider>

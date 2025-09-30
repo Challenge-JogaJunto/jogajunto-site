@@ -103,16 +103,16 @@ export default function Header({ links }) {
                     transition
                     className={`p-0 menu-dropdown origin-top transition duration-200 ease-out data-closed:scale-95 data-closed:opacity-0 outline-none mt-4`}
                   >
-                    <MenuItem>
-                      <Link
-                        to="/"
-                        className={`link p-4 ${styles.menuItem} transition flex items-center gap-2`}
-                      >
-                        {" "}
-                        <FaRegNoteSticky size={20} />
-                        Peneira
-                      </Link>
-                    </MenuItem>
+                    {/*<MenuItem>*/}
+                    {/*  <Link*/}
+                    {/*    to="/"*/}
+                    {/*    className={`link p-4 ${styles.menuItem} transition flex items-center gap-2`}*/}
+                    {/*  >*/}
+                    {/*    {" "}*/}
+                    {/*    <FaRegNoteSticky size={20} />*/}
+                    {/*    Peneira*/}
+                    {/*  </Link>*/}
+                    {/*</MenuItem>*/}
                     <MenuItem>
                       <Link
                         to="/"
@@ -123,16 +123,16 @@ export default function Header({ links }) {
                         Campeonato
                       </Link>
                     </MenuItem>
-                    <MenuItem>
-                      <Link
-                        to="/"
-                        className={`link p-4 ${styles.menuItem} transition flex items-center gap-2`}
-                      >
-                        {" "}
-                        <FaRegCalendar size={20} />
-                        Evento
-                      </Link>
-                    </MenuItem>
+                    {/*<MenuItem>*/}
+                    {/*  <Link*/}
+                    {/*    to="/"*/}
+                    {/*    className={`link p-4 ${styles.menuItem} transition flex items-center gap-2`}*/}
+                    {/*  >*/}
+                    {/*    {" "}*/}
+                    {/*    <FaRegCalendar size={20} />*/}
+                    {/*    Evento*/}
+                    {/*  </Link>*/}
+                    {/*</MenuItem>*/}
                     <MenuItem>
                       <Link
                         to="/"

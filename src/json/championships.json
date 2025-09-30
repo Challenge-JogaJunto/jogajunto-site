@@ -1,0 +1,571 @@
+[
+  {
+    "championship": {
+      "id": 1024,
+      "slug": "campeonato-municipal-feminino-2ed",
+      "title": "2º Campeonato Municipal de Futebol Feminino Amador",
+      "shortTitle": "Campeonato Municipal - 2ª Edição",
+      "subtitle": "7 e 8 de Dezembro",
+      "description": "Campeonato amador voltado para times femininos municipais. Formato mata-mata com premiação para as 3 primeiras colocadas.",
+      "format": "Mata Mata",
+      "status": "upcoming",
+      "public": false,
+      "startDate": "2025-12-07T08:00:00-03:00",
+      "endDate": "2025-12-08T18:00:00-03:00",
+      "coverImage": "/imgs/campeonato-capa-2.jpg",
+      "gallery": [
+        "/imgs/galeria1.jpg",
+        "/imgs/galeria2.jpg"
+      ],
+      "links": [
+        {
+          "label": "Comprar ingressos",
+          "url": "https://ingressos.com.br/evento/1024"
+        }
+      ],
+      "location": {
+        "venue": "Clube - SindiGoiânia",
+        "address": "Rua Teste, 123, Goiânia, GO, Brasil",
+        "postalCode": "00000-000",
+        "coordinates": {
+          "lat": -16.6789,
+          "lng": -49.255
+        }
+      },
+      "capacity": 500,
+      "registrations": {
+        "teamsRegistered": 8,
+        "playersRegistered": 120,
+        "expectedAudience": 200
+      },
+      "tickets": [
+        {
+          "type": "Entrada Geral",
+          "price": 15.0,
+          "currency": "BRL",
+          "url": "https://ingressos.com.br/evento/1024/geral"
+        }
+      ],
+      "createdAt": "2025-09-20T10:15:00-03:00",
+      "updatedAt": "2025-09-25T09:00:00-03:00"
+    },
+    "organizer": {
+      "id": 55,
+      "name": "SindiGoiânia",
+      "contactEmail": "contato@sindigoiania.org.br",
+      "logo": "/imgs/sindigoiania-logo.png",
+      "website": "https://sindigoiania.org.br"
+    }
+  },
+  {
+    "championship": {
+      "id": 1025,
+      "slug": "taça-cidade-feminina-2025",
+      "title": "Taça Cidade - Futebol Feminino 2025",
+      "shortTitle": "Taça Cidade 2025",
+      "subtitle": "14 a 16 de Novembro",
+      "description": "Torneio regional com fase de grupos seguida por mata-mata. Foco em formação de novas jogadoras.",
+      "format": "Grupos + Mata Mata",
+      "status": "upcoming",
+      "public": true,
+      "startDate": "2025-11-14T09:00:00-03:00",
+      "endDate": "2025-11-16T17:00:00-03:00",
+      "coverImage": "/imgs/taça-cidade-capa.jpg",
+      "gallery": [
+        "/imgs/taca1.jpg",
+        "/imgs/taca2.jpg"
+      ],
+      "links": [
+        {
+          "label": "Inscrições",
+          "url": "https://jogajunto.com/inscricoes/1025"
+        }
+      ],
+      "location": {
+        "venue": "Estádio Municipal",
+        "address": "Av. Central, 500, Cidade X, SP, Brasil",
+        "postalCode": "11111-111",
+        "coordinates": {
+          "lat": -23.5505,
+          "lng": -46.6333
+        }
+      },
+      "capacity": 1200,
+      "registrations": {
+        "teamsRegistered": 12,
+        "playersRegistered": 180,
+        "expectedAudience": 800
+      },
+      "tickets": [
+        {
+          "type": "Inteira",
+          "price": 20.0,
+          "currency": "BRL",
+          "url": "https://ingressos.com.br/evento/1025"
+        }
+      ],
+      "createdAt": "2025-08-12T08:00:00-03:00",
+      "updatedAt": "2025-09-01T12:00:00-03:00"
+    },
+    "organizer": {
+      "id": 66,
+      "name": "Prefeitura de Cidade X",
+      "contactEmail": "esportes@cidadex.gov.br",
+      "logo": "/imgs/prefeitura-cidadex.png",
+      "website": "https://cidadex.gov.br"
+    }
+  },
+  {
+    "championship": {
+      "id": 1026,
+      "slug": "copa-intermunicipal-feminina-1ed",
+      "title": "Copa Intermunicipal Feminina - 1ª Edição",
+      "shortTitle": "Copa Intermunicipal",
+      "subtitle": "20 e 21 de Setembro",
+      "description": "Primeira edição da copa intermunicipal – jogos aos fins de semana com foco em visibilidade para clubes locais.",
+      "format": "Mata Mata",
+      "status": "finished",
+      "public": true,
+      "startDate": "2025-09-20T08:00:00-03:00",
+      "endDate": "2025-09-21T18:00:00-03:00",
+      "coverImage": "/imgs/copa-inter-capa.jpg",
+      "gallery": [
+        "/imgs/copa1.jpg"
+      ],
+      "links": [
+        {
+          "label": "Resumo",
+          "url": "https://jogajunto.com/campeonatos/1026/resumo"
+        }
+      ],
+      "location": {
+        "venue": "Centro Esportivo Regional",
+        "address": "Rua das Flores, 45, Município Y, MG, Brasil",
+        "postalCode": "22222-222",
+        "coordinates": {
+          "lat": -19.9208,
+          "lng": -43.9378
+        }
+      },
+      "capacity": 800,
+      "registrations": {
+        "teamsRegistered": 10,
+        "playersRegistered": 150,
+        "expectedAudience": 600
+      },
+      "tickets": [
+        {
+          "type": "Pista",
+          "price": 10.0,
+          "currency": "BRL",
+          "url": "https://ingressos.com.br/evento/1026"
+        }
+      ],
+      "createdAt": "2025-06-10T11:00:00-03:00",
+      "updatedAt": "2025-09-22T10:00:00-03:00"
+    },
+    "organizer": {
+      "id": 77,
+      "name": "Liga Regional de Futebol Feminino",
+      "contactEmail": "contato@ligaregional.org",
+      "logo": "/imgs/liga-regional.png",
+      "website": "https://ligaregional.org"
+    }
+  },
+  {
+    "championship": {
+      "id": 1027,
+      "slug": "campeonato-estadual-amador-2025",
+      "title": "Campeonato Estadual Amador Feminino 2025",
+      "shortTitle": "Estadual Amador 2025",
+      "subtitle": "3 a 10 de Outubro",
+      "description": "Etapas estaduais com diversas cidades participantes. Formato por chave.",
+      "format": "Chave + Mata Mata",
+      "status": "ongoing",
+      "public": true,
+      "startDate": "2025-10-03T09:00:00-03:00",
+      "endDate": "2025-10-10T19:00:00-03:00",
+      "coverImage": "/imgs/estadual-capa.jpg",
+      "gallery": [
+        "/imgs/estadual1.jpg",
+        "/imgs/estadual2.jpg"
+      ],
+      "links": [
+        {
+          "label": "Regulamento",
+          "url": "https://jogajunto.com/regulamentos/1027.pdf"
+        }
+      ],
+      "location": {
+        "venue": "Complexo Esportivo Estadual",
+        "address": "Av. Estado, 1000, Capital, Brasil",
+        "postalCode": "33333-333",
+        "coordinates": {
+          "lat": -22.9068,
+          "lng": -43.1729
+        }
+      },
+      "capacity": 2500,
+      "registrations": {
+        "teamsRegistered": 24,
+        "playersRegistered": 360,
+        "expectedAudience": 2000
+      },
+      "tickets": [
+        {
+          "type": "VIP",
+          "price": 50.0,
+          "currency": "BRL",
+          "url": "https://ingressos.com.br/evento/1027/vip"
+        }
+      ],
+      "createdAt": "2025-05-01T09:30:00-03:00",
+      "updatedAt": "2025-10-05T14:00:00-03:00"
+    },
+    "organizer": {
+      "id": 88,
+      "name": "Federação Estadual de Futebol Feminino",
+      "contactEmail": "fef@estado.org.br",
+      "logo": "/imgs/federacao-estadual.png",
+      "website": "https://fef-estado.org.br"
+    }
+  },
+  {
+    "championship": {
+      "id": 1028,
+      "slug": "torneio-amador-verao-2026",
+      "title": "Torneio Amador de Verão - Feminino",
+      "shortTitle": "Torneio Verão 2026",
+      "subtitle": "5 a 7 de Janeiro",
+      "description": "Torneio de verão com caráter amistoso e competitivo, ideal para scouts e observadores.",
+      "format": "Fase Única",
+      "status": "draft",
+      "public": true,
+      "startDate": "2026-01-05T09:00:00-03:00",
+      "endDate": "2026-01-07T17:00:00-03:00",
+      "coverImage": "/imgs/verao-capa.jpg",
+      "gallery": [
+        "/imgs/verao1.jpg"
+      ],
+      "links": [
+        {
+          "label": "Inscreva seu time",
+          "url": "https://jogajunto.com/inscricoes/1028"
+        }
+      ],
+      "location": {
+        "venue": "Praça do Esporte",
+        "address": "Praça Central, 1, Litoral, Brasil",
+        "postalCode": "44444-444",
+        "coordinates": {
+          "lat": -23.0106,
+          "lng": -43.2322
+        }
+      },
+      "capacity": 300,
+      "registrations": {
+        "teamsRegistered": 6,
+        "playersRegistered": 90,
+        "expectedAudience": 250
+      },
+      "tickets": [
+        {
+          "type": "Entrada",
+          "price": 5.0,
+          "currency": "BRL",
+          "url": "https://ingressos.com.br/evento/1028"
+        }
+      ],
+      "createdAt": "2025-11-01T10:00:00-03:00",
+      "updatedAt": "2025-11-05T10:00:00-03:00"
+    },
+    "organizer": {
+      "id": 99,
+      "name": "Associação Verão Esportivo",
+      "contactEmail": "contato@veraesportivo.org",
+      "logo": "/imgs/associacao-verao.png",
+      "website": "https://veraesportivo.org"
+    }
+  },
+  {
+    "championship": {
+      "id": 1029,
+      "slug": "copa-amizade-feminina-2025",
+      "title": "Copa Amizade - Futebol Feminino",
+      "shortTitle": "Copa Amizade 2025",
+      "subtitle": "2 de Novembro",
+      "description": "Evento de um dia com partidas amistosas entre equipes convidadas. Enfoque comunitário.",
+      "format": "Amistoso",
+      "status": "upcoming",
+      "public": true,
+      "startDate": "2025-11-02T08:30:00-03:00",
+      "endDate": "2025-11-02T18:00:00-03:00",
+      "coverImage": "/imgs/copa-amizade.jpg",
+      "gallery": [],
+      "links": [
+        {
+          "label": "Evento",
+          "url": "https://jogajunto.com/eventos/1029"
+        }
+      ],
+      "location": {
+        "venue": "Quadra Poliesportiva",
+        "address": "Rua Comunitária, 10, Bairro Z, Brasil",
+        "postalCode": "55555-555",
+        "coordinates": {
+          "lat": -10.9472,
+          "lng": -37.0731
+        }
+      },
+      "capacity": 400,
+      "registrations": {
+        "teamsRegistered": 4,
+        "playersRegistered": 64,
+        "expectedAudience": 300
+      },
+      "tickets": [
+        {
+          "type": "Doação sugerida",
+          "price": 0.0,
+          "currency": "BRL",
+          "url": "https://jogajunto.com/donate/1029"
+        }
+      ],
+      "createdAt": "2025-07-20T09:00:00-03:00",
+      "updatedAt": "2025-08-01T09:00:00-03:00"
+    },
+    "organizer": {
+      "id": 101,
+      "name": "Coletivo Amizade",
+      "contactEmail": "coletivo@amizade.org",
+      "logo": "/imgs/coletivo-amizade.png",
+      "website": "https://coletivoamizade.org"
+    }
+  },
+  {
+    "championship": {
+      "id": 1030,
+      "slug": "circuito-horizonte-feminino-2025",
+      "title": "Circuito Horizonte - Etapa Feminina",
+      "shortTitle": "Circuito Horizonte",
+      "subtitle": "18 a 20 de Setembro",
+      "description": "Etapa do circuito regional com foco em desenvolvimento técnico e visibilidade.",
+      "format": "Rodadas",
+      "status": "finished",
+      "public": true,
+      "startDate": "2025-09-18T08:00:00-03:00",
+      "endDate": "2025-09-20T18:00:00-03:00",
+      "coverImage": "/imgs/circuito-horizonte.jpg",
+      "gallery": [
+        "/imgs/circuito1.jpg"
+      ],
+      "links": [
+        {
+          "label": "Galeria",
+          "url": "https://jogajunto.com/galeria/1030"
+        }
+      ],
+      "location": {
+        "venue": "Parque do Horizonte",
+        "address": "Alameda Verde, 20, Horizonte, Brasil",
+        "postalCode": "66666-666",
+        "coordinates": {
+          "lat": -18.8800,
+          "lng": -48.2800
+        }
+      },
+      "capacity": 1000,
+      "registrations": {
+        "teamsRegistered": 16,
+        "playersRegistered": 240,
+        "expectedAudience": 900
+      },
+      "tickets": [
+        {
+          "type": "Geral",
+          "price": 12.5,
+          "currency": "BRL",
+          "url": "https://ingressos.com.br/evento/1030"
+        }
+      ],
+      "createdAt": "2025-04-05T10:00:00-03:00",
+      "updatedAt": "2025-09-21T11:00:00-03:00"
+    },
+    "organizer": {
+      "id": 110,
+      "name": "Horizonte Esportes",
+      "contactEmail": "contato@horizonteesportes.com",
+      "logo": "/imgs/horizonte-logo.png",
+      "website": "https://horizonteesportes.com"
+    }
+  },
+  {
+    "championship": {
+      "id": 1031,
+      "slug": "festival-jovens-talentos-feminino-2025",
+      "title": "Festival Jovens Talentos - Feminino",
+      "shortTitle": "Festival Talentos",
+      "subtitle": "12 de Outubro",
+      "description": "Evento focado em scouting e desenvolvimento de atletas sub-20, com observadores de clubes presentes.",
+      "format": "Torneio",
+      "status": "upcoming",
+      "public": true,
+      "startDate": "2025-10-12T09:00:00-03:00",
+      "endDate": "2025-10-12T17:00:00-03:00",
+      "coverImage": "/imgs/festival-talentos.jpg",
+      "gallery": [],
+      "links": [
+        {
+          "label": "Cadastro de atletas",
+          "url": "https://jogajunto.com/cadastros/1031"
+        }
+      ],
+      "location": {
+        "venue": "Centro de Treinamento",
+        "address": "Estrada do Treino, 300, Região, Brasil",
+        "postalCode": "77777-777",
+        "coordinates": {
+          "lat": -21.1700,
+          "lng": -47.8100
+        }
+      },
+      "capacity": 350,
+      "registrations": {
+        "teamsRegistered": 8,
+        "playersRegistered": 120,
+        "expectedAudience": 300
+      },
+      "tickets": [
+        {
+          "type": "Atleta",
+          "price": 0.0,
+          "currency": "BRL",
+          "url": "https://jogajunto.com/athletes/1031"
+        }
+      ],
+      "createdAt": "2025-07-01T08:00:00-03:00",
+      "updatedAt": "2025-09-30T09:00:00-03:00"
+    },
+    "organizer": {
+      "id": 120,
+      "name": "Projeto Jovens Talentos",
+      "contactEmail": "talentos@projeto.org",
+      "logo": "/imgs/projeto-talentos.png",
+      "website": "https://jovenstalentos.org"
+    }
+  },
+  {
+    "championship": {
+      "id": 1032,
+      "slug": "copa-metropolitana-feminina-2025",
+      "title": "Copa Metropolitana Feminina",
+      "shortTitle": "Copa Metropolitana",
+      "subtitle": "25 a 27 de Outubro",
+      "description": "Copa com equipes metropolitanas, jogos noturnos e transmissão local.",
+      "format": "Mata Mata",
+      "status": "upcoming",
+      "public": true,
+      "startDate": "2025-10-25T17:00:00-03:00",
+      "endDate": "2025-10-27T22:00:00-03:00",
+      "coverImage": "/imgs/copa-metropolitana.jpg",
+      "gallery": [
+        "/imgs/metropolitana1.jpg"
+      ],
+      "links": [
+        {
+          "label": "Transmissão",
+          "url": "https://streaming.com/copa1032"
+        }
+      ],
+      "location": {
+        "venue": "Arena Metropolitana",
+        "address": "Av. Metrópole, 200, Grande Região, Brasil",
+        "postalCode": "88888-888",
+        "coordinates": {
+          "lat": -12.9704,
+          "lng": -38.5124
+        }
+      },
+      "capacity": 4000,
+      "registrations": {
+        "teamsRegistered": 20,
+        "playersRegistered": 300,
+        "expectedAudience": 3500
+      },
+      "tickets": [
+        {
+          "type": "Campeonato Pass",
+          "price": 60.0,
+          "currency": "BRL",
+          "url": "https://ingressos.com.br/evento/1032"
+        }
+      ],
+      "createdAt": "2025-03-12T09:00:00-03:00",
+      "updatedAt": "2025-10-01T12:00:00-03:00"
+    },
+    "organizer": {
+      "id": 130,
+      "name": "Metropolitana Esportes",
+      "contactEmail": "contato@metropolitana.org",
+      "logo": "/imgs/metropolitana-logo.png",
+      "website": "https://metropolitana.org"
+    }
+  },
+  {
+    "championship": {
+      "id": 1033,
+      "slug": "encontro-camisas-coloridas-2025",
+      "title": "Encontro Camisas Coloridas - Feminino",
+      "shortTitle": "Camisas Coloridas",
+      "subtitle": "6 de Dezembro",
+      "description": "Encontro amistoso e festival esportivo com partidas e atividades comunitárias.",
+      "format": "Amistoso",
+      "status": "upcoming",
+      "public": false,
+      "startDate": "2025-12-06T09:00:00-03:00",
+      "endDate": "2025-12-06T18:00:00-03:00",
+      "coverImage": "/imgs/camisas-coloridas.jpg",
+      "gallery": [
+        "/imgs/coloridas1.jpg"
+      ],
+      "links": [
+        {
+          "label": "Evento privado",
+          "url": "https://jogajunto.com/eventos/1033"
+        }
+      ],
+      "location": {
+        "venue": "Clube Social",
+        "address": "Rua Alegre, 77, Bairro Alegre, Brasil",
+        "postalCode": "99999-999",
+        "coordinates": {
+          "lat": -15.7801,
+          "lng": -47.9292
+        }
+      },
+      "capacity": 200,
+      "registrations": {
+        "teamsRegistered": 6,
+        "playersRegistered": 84,
+        "expectedAudience": 150
+      },
+      "tickets": [
+        {
+          "type": "Convidado",
+          "price": 0.0,
+          "currency": "BRL",
+          "url": "https://jogajunto.com/private/1033"
+        }
+      ],
+      "createdAt": "2025-09-05T10:00:00-03:00",
+      "updatedAt": "2025-09-10T10:00:00-03:00"
+    },
+    "organizer": {
+      "id": 140,
+      "name": "Grupo Camisas Coloridas",
+      "contactEmail": "contato@camisascoloridas.org",
+      "logo": "/imgs/camisas-logo.png",
+      "website": "https://camisascoloridas.org"
+    }
+  }
+]

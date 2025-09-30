@@ -8,6 +8,7 @@ export default function DefaultModal({
   size = "lg",
 }) {
   let maxWidth = `max-w-${size}`;
+  console.log(maxWidth)
   return (
     <>
       <Dialog open={isOpen} onClose={onClose} className="relative z-100">
@@ -16,7 +17,7 @@ export default function DefaultModal({
           style={{ backdropFilter: "blur(8px)" }}
         >
           <DialogPanel
-            className={`relative w-full max-w-2xl ${maxWidth} space-y-4 border border-[var(--borda-container)] bg-[var(--container)] p-6 rounded-lg`}
+            className={`relative w-full ${maxWidth} border border-[var(--borda-container)] bg-[var(--container)] p-6 rounded-lg`}
           >
             {onClose && (
               <div onClick={onClose} className="absolute top-0 right-0 p-6 cursor-pointer">

@@ -9,10 +9,10 @@
       "description": "Campeonato amador voltado para times femininos municipais. Formato mata-mata com premiação para as 3 primeiras colocadas.",
       "format": "Mata Mata",
       "status": "upcoming",
-      "public": false,
+      "public": true,
       "startDate": "2025-12-07T08:00:00-03:00",
       "endDate": "2025-12-08T18:00:00-03:00",
-      "coverImage": "/imgs/campeonato-capa-2.jpg",
+      "coverImage": "./imgs/capa-campeonato.png",
       "gallery": [
         "/imgs/galeria1.jpg",
         "/imgs/galeria2.jpg"
@@ -70,7 +70,7 @@
       "public": true,
       "startDate": "2025-11-14T09:00:00-03:00",
       "endDate": "2025-11-16T17:00:00-03:00",
-      "coverImage": "/imgs/taça-cidade-capa.jpg",
+      "coverImage": "https://oabsc.s3.sa-east-1.amazonaws.com/images/202210031512580.png",
       "gallery": [
         "/imgs/taca1.jpg",
         "/imgs/taca2.jpg"
@@ -109,9 +109,9 @@
     },
     "organizer": {
       "id": 66,
-      "name": "Prefeitura de Cidade X",
+      "name": "União Futsal Feminino",
       "contactEmail": "esportes@cidadex.gov.br",
-      "logo": "/imgs/prefeitura-cidadex.png",
+      "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7lJpj1eWt8SeKRw0O4LAaIPv8Hx3nmvsdNCc18rs0l02zJLorhvuOrxLfXQoxiLMmK2s&usqp=CAU",
       "website": "https://cidadex.gov.br"
     }
   },
@@ -128,7 +128,7 @@
       "public": true,
       "startDate": "2025-09-20T08:00:00-03:00",
       "endDate": "2025-09-21T18:00:00-03:00",
-      "coverImage": "/imgs/copa-inter-capa.jpg",
+      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd2tmYx5VH63ZekYG6oYGDyvbyKxFRVBbpSA&s",
       "gallery": [
         "/imgs/copa1.jpg"
       ],
@@ -166,9 +166,9 @@
     },
     "organizer": {
       "id": 77,
-      "name": "Liga Regional de Futebol Feminino",
+      "name": "Guerreiras Futebol feminino",
       "contactEmail": "contato@ligaregional.org",
-      "logo": "/imgs/liga-regional.png",
+      "logo": "https://www.magiadoesporte.com.br/wp-content/uploads/2020/04/Logo_Guerreiras.png",
       "website": "https://ligaregional.org"
     }
   },

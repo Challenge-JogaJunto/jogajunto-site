@@ -6,6 +6,7 @@ import {ErrorBoundary} from "react-error-boundary";
 import {ErrorFallback} from "@/components/ErrorFallback/index.jsx";
 import ContainerDiv from "@/components/Container/index.jsx";
 import {Skeleton} from "@/components/ui/skeleton.jsx";
+import Button from "@/components/Button/index.jsx";
 
 export default function Championship() {
     const {id} = useParams();
@@ -27,17 +28,43 @@ export default function Championship() {
 
 function ChampionshipDetails({resource}) {
     const championship = resource.read()
-
-    if (!championship) {
-        return (
-            <h2 className="subtitle">
-                Campeonato não encontrado!
-            </h2>
-        )
-    }
+    console.log(championship)
     return (
         <>
-            olá
+            <ContainerDiv className={"grid grid-cols-1 md:grid-cols-2  relative text-[var(--texto)] overflow-hidden"}>
+                <img src={championship.championship.coverImage} alt={"Imagem de capa do campeonato"}
+                     className={"w-full aspect-video"}/>
+                <div className="w-full flex flex-col gap-3 py-5 px-8 h-fill">
+                    <h1 className="subtitle">{championship.championship.title}</h1>
+                    <ul className={"list-none flex flex-col gap-3"}>
+                        <li>
+                            <p className="text">
+                                Formato <span
+                                className={"font-bold text-[var(--primaria)]"}>{championship.championship.format}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p className="text">
+                                <span
+                                    className={"font-bold text-[var(--primaria)]"}>{championship.championship.registrations.expectedAudience} </span>
+                                pessoas irão comparecer
+                            </p>
+                        </li>
+                        <li>
+                            <p className="text">
+                                <span
+                                    className={"font-bold text-[var(--primaria)]"}>{championship.championship.registrations.playersRegistered} </span>
+                                jogadoras participarão
+                            </p>
+                        </li>
+                    </ul>
+                    <Button className={"w-full rounded-sm mt-auto"} disabled={!championship.championship.public}>
+
+                    </Button>
+
+                </div>
+
+            </ContainerDiv>
         </>
     )
 }

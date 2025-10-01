@@ -4,7 +4,9 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.5s ease;
-
+    &:disabled {
+        background: grey;
+    }
   &.primary {
     background: var(--primaria);
     color: white;

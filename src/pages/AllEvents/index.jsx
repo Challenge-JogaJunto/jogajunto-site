@@ -7,7 +7,6 @@ export default function AllEvents() {
     const [championShips, setChampionShips] = useState([]);
     const fetchChampionShips = async () => {
         const response = await getChampionships();
-        console.log(response);
         setChampionShips(response)
     }
     useEffect(() => {
@@ -15,7 +14,7 @@ export default function AllEvents() {
     }, [])
     return (
         <>
-            <Carousel className="w-full">
+            <Carousel className="max-w-full">
                 <CarouselContent>
 
                 </CarouselContent>
@@ -24,7 +23,7 @@ export default function AllEvents() {
             </Carousel>
 
             <Tabs defaultValue="campeonatos" className="w-full">
-                <TabsList>
+                <TabsList className={"bg-[var(--primaria)]"}>
                     <TabsTrigger value="campeonatos">Campeonatos</TabsTrigger>
                     <TabsTrigger value="eventos">Eventos</TabsTrigger>
                     <TabsTrigger value="peneiras">Peneiras</TabsTrigger>
@@ -32,7 +31,7 @@ export default function AllEvents() {
                 <TabsContent value="campeonatos">
                     {
                         (championShips && championShips.length > 0) ? championShips.map((championShip) => (
-                            <div>{championShip.championship.title}</div>
+                            <></>
                         )) : (
                             <>
                                 <p className="link">

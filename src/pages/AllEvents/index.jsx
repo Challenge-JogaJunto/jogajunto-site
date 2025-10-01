@@ -38,8 +38,8 @@ export default function AllEvents() {
             <Tabs defaultValue="campeonatos" className="w-full">
                 <TabsList className={"bg-[var(--primaria)]"}>
                     <TabsTrigger value="campeonatos">Campeonatos</TabsTrigger>
-                    <TabsTrigger value="eventos">Eventos</TabsTrigger>
-                    <TabsTrigger value="peneiras">Peneiras</TabsTrigger>
+                    {/*<TabsTrigger value="eventos">Eventos</TabsTrigger>*/}
+                    {/*<TabsTrigger value="peneiras">Peneiras</TabsTrigger>*/}
                 </TabsList>
                 <TabsContent value="campeonatos"
                              className="w-full mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center">
@@ -54,6 +54,7 @@ export default function AllEvents() {
                                     description={championShip.championship.description}
                                     address={championShip.championship.location.address}
                                     date={championShip.championship.startDate}
+                                    link={`/championship/${championShip.championship.id}`}
                                 />
                             </>
                         )) : (

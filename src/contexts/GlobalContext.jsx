@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import {GlobalContext} from "../hooks/useGlobal";
-import usersData from "../json/users.json";
 
 export const GlobalProvider = ({children}) => {
     const [user, setUser] = useState(() => {
@@ -16,7 +15,7 @@ export const GlobalProvider = ({children}) => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-    const [users, setUsers] = useState(usersData || []);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         const local = localStorage.getItem("allUsers");

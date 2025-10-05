@@ -6,6 +6,7 @@ import SideBar from "../components/SideBar";
 import useGlobal from "../hooks/useGlobal";
 import ContainerDiv from "../components/Container";
 
+
 export default function RootLayout() {
     const links = [
         {

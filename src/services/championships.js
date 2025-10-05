@@ -16,7 +16,7 @@ const getChampionships = () => {
         })
         .then(championships => {
             // localStorage.setItem("championships", JSON.stringify(championships));
-            return championships;
+            return championships.filter((c) => c.championship.public);
         }).catch(err => {
             console.error(err)
             toast.error("Erro ao buscar os campeonatos!")
@@ -37,7 +37,7 @@ const getChampionshipById = (id) => {
         })
         .then(championships => {
 
-            const found = championships.find((c) => c.championship.id === Number(id));
+            const found = championships.find((c) => c.championship.id === Number(id) );
             if (!found) {
                 throw new Error("Campeonato não encontrado");
             }

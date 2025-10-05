@@ -7,6 +7,7 @@ import {ErrorFallback} from "@/components/ErrorFallback/index.jsx";
 import ContainerDiv from "@/components/Container/index.jsx";
 import {Skeleton} from "@/components/ui/skeleton.jsx";
 import Button from "@/components/Button/index.jsx";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs.jsx";
 
 export default function Championship() {
     const {id} = useParams();
@@ -28,7 +29,6 @@ export default function Championship() {
 
 function ChampionshipDetails({resource}) {
     const championship = resource.read()
-    console.log(championship)
     return (
         <>
             <ContainerDiv className={"grid grid-cols-1 md:grid-cols-2  relative text-[var(--texto)] overflow-hidden"}>
@@ -57,14 +57,67 @@ function ChampionshipDetails({resource}) {
                                 jogadoras participarão
                             </p>
                         </li>
-                    </ul>
-                    <Button className={"w-full rounded-sm mt-auto"} disabled={!championship.championship.public}>
+                        <li>
+                            <p className="text">
+                                Endereço:
+                                <span
+                                    className={"font-bold text-[var(--primaria)]"}> {championship.championship.location.address} </span>
 
+                            </p>
+                        </li>
+
+                    </ul>
+                    <Button styleClass={"w-full rounded-sm mt-auto"}>
+                        Comparecer
                     </Button>
 
                 </div>
 
             </ContainerDiv>
+            <div className="flex flex-col-reverse md:flex-row mt-10 gap-5">
+                <ContainerDiv className={"w-full py-5 px-8 text-[var(--texto)]"}>
+                    <Tabs defaultValue="geral" className="w-full">
+                        <TabsList className={"bg-[var(--primaria)]"}>
+                            <TabsTrigger value="geral">Visão geral</TabsTrigger>
+                            <TabsTrigger value="partidas">Partidas</TabsTrigger>
+                            <TabsTrigger value="classificacao">Classificação</TabsTrigger>
+                            <TabsTrigger value="jogadoras">Jogadoras</TabsTrigger>
+                        </TabsList>
+                        <TabsContent value={"geral"}>
+                            <h3 className="subtitle mt-8 mb-3">Visão geral</h3>
+                            <p className="text">{championship.championship.description}</p>
+                            {championship.championship.links && championship.championship.links.length > 0 && (
+                                <>
+                                    <h3 className="subtitle mt-8 mb-3">Links</h3>
+                                    <div className="flex flex-wrap gap-3">
+                                        {championship.championship.links.map((link) => (
+                                            <a href={link.url}
+                                               className={"px-3 py-1 border border-[var(--secundaria)] text-[var(--secundaria)] rounded-md"}>{link.label}</a>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </TabsContent>
+                        <TabsContent value={"partidas"}>
+                            Partidas
+                        </TabsContent>
+                        <TabsContent value={"classificacao"}>
+                            Classificação
+                        </TabsContent>
+                    </Tabs>
+
+                </ContainerDiv>
+                <ContainerDiv className={"w-fit py-5 px-8 text-[var(--texto)]"}>
+                    <div className="flex-col gap-5 items-center justify-center hidden xl:flex ">
+                        <img src={championship.organizer.logo} alt="Logo do organizador"
+                             className={"min-w-[200px] max-w-[200px] aspect-ratio--1x1 rounded-full overflow-hidden"}/>
+                        <p className="link">
+                            {championship.organizer.name}
+                        </p>
+                    </div>
+                </ContainerDiv>
+            </div>
+
         </>
     )
 }

@@ -7,6 +7,7 @@ import Register from "../pages/Register";
 import Home from "../pages/Home";
 import AllEvents from "@/pages/AllEvents/index.jsx";
 import Championship from "@/pages/Championship/index.jsx";
+import DashboardLayout from "@/layouts/DashboardLayout.jsx";
 
 const router = createBrowserRouter([
     {
@@ -18,9 +19,14 @@ const router = createBrowserRouter([
             {path: "profile", element: <Profile/>},
             {path: "eventos", element: <AllEvents/>},
             {path: "championship/:id", element: <Championship/>},
-
+            {
+                path: "dashboard", element: <DashboardLayout/>, children: [
+                    {path: "campeonatos", element: <>campeonatos</>}
+                ]
+            },
         ],
     },
+
     {
         path: "*",
         element: <></>,

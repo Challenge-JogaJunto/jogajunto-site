@@ -1,11 +1,14 @@
 import {useEffect, useState} from "react";
 import {GlobalContext} from "../hooks/useGlobal";
+import {LuGitFork} from "react-icons/lu";
 
 export const GlobalProvider = ({children}) => {
     const [user, setUser] = useState(() => {
         const storedUser = sessionStorage.getItem("user");
         return storedUser ? JSON.parse(storedUser) : null;
     });
+
+
     const [loading, setLoading] = useState(false);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -51,6 +54,33 @@ export const GlobalProvider = ({children}) => {
         }
     }, [user]);
 
+    let links = [
+        {
+            name: "Explorar",
+            url: "/",
+        },
+        {
+            name: "Sobre nós",
+            url: "/sobre-nos",
+        },
+
+        {
+            name: "Planos",
+            url: "/planos",
+        },
+        {
+            name: "Dashboard",
+            url: "/dashboard",
+        },
+    ];
+    const dashboardLinks = [
+        {
+            name: "Meus campeonatos",
+            url: "/dashboard/campeonatos",
+            icon: <LuGitFork/>
+        },
+    ]
+
     const globalValue = {
         user,
         setUser,
@@ -62,6 +92,8 @@ export const GlobalProvider = ({children}) => {
         screenWidth,
         setLoading,
         loading,
+        links,
+        dashboardLinks,
     };
     return (
         <GlobalContext.Provider value={globalValue}>

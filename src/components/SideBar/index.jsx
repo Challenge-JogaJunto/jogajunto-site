@@ -60,12 +60,12 @@ export default function SideBar() {
                             className="flex gap-3 link w-full py-4 px-3 hover:bg-[var(--borda-container)] hover:text-[var(--primaria)] rounded-sm transition"
                         >
                             <FaRegCalendar size={20}/>
-                            Eventos
+                            Campeonatos
                         </Link>
                     </div>
                     <div className="w-full">
                         <Link
-                            to={""}
+                            to={"/dashboard"}
                             className="flex gap-3 link w-full py-4 px-3 hover:bg-[var(--borda-container)] hover:text-[var(--primaria)] rounded-sm transition"
                         >
                             <AiOutlineControl size={20}/>

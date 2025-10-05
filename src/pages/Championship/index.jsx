@@ -80,7 +80,7 @@ function ChampionshipDetails({resource}) {
                         <TabsList className={"bg-[var(--primaria)]"}>
                             <TabsTrigger value="geral">Visão geral</TabsTrigger>
                             <TabsTrigger value="partidas">Partidas</TabsTrigger>
-                            <TabsTrigger value="classificacao">Classificação</TabsTrigger>
+                            {/*<TabsTrigger value="classificacao">Classificação</TabsTrigger>*/}
                             <TabsTrigger value="jogadoras">Jogadoras</TabsTrigger>
                         </TabsList>
                         <TabsContent value={"geral"}>
@@ -101,9 +101,9 @@ function ChampionshipDetails({resource}) {
                         <TabsContent value={"partidas"}>
                             Partidas
                         </TabsContent>
-                        <TabsContent value={"classificacao"}>
-                            Classificação
-                        </TabsContent>
+                        {/*<TabsContent value={"classificacao"}>*/}
+                        {/*    Classificação*/}
+                        {/*</TabsContent>*/}
                     </Tabs>
 
                 </ContainerDiv>
@@ -114,6 +114,7 @@ function ChampionshipDetails({resource}) {
                         <p className="link">
                             {championship.organizer.name}
                         </p>
+
                     </div>
                 </ContainerDiv>
             </div>

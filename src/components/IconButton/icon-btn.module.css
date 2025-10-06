@@ -1,0 +1,7 @@
+.iconButton{
+    color: var(--texto);
+    cursor: pointer;
+    &:hover{
+        color: var(--primaria-2);
+    }
+}

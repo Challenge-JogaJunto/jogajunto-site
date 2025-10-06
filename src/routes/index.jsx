@@ -21,8 +21,9 @@ const router = createBrowserRouter([
             {path: "eventos", element: <AllEvents/>},
             {path: "championship/:id", element: <Championship/>},
             {
-                path: "dashboard", element: <DashboardLayout/>, children: [
-                    {path: "campeonatos", element: <MyChampionships />}
+                path: "dashboard", element: <DashboardLayout/>,
+                children: [
+                    {path: "campeonatos", element: <MyChampionships/>}
                 ]
             },
         ],

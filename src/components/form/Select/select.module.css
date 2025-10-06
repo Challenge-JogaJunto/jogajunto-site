@@ -8,7 +8,7 @@
   margin-top: 1.6rem; 
   & select {
     width: 100%;
-    border: 1px solid var(--container-border);
+    border: 1px solid var(--borda-container);
     border-radius: 5px;
     padding: 0.5rem 1rem;
     outline: none;

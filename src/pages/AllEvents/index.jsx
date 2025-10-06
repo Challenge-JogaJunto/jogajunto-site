@@ -9,7 +9,7 @@ export default function AllEvents() {
     const [championShips, setChampionShips] = useState([]);
     const fetchChampionShips = async () => {
         const response = await getChampionships();
-        setChampionShips(response)
+        setChampionShips(response.filter(champion => champion.championship.public));
     }
     useEffect(() => {
         fetchChampionShips();

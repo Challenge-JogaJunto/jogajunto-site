@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {GlobalContext} from "../hooks/useGlobal";
 import {LuGitFork} from "react-icons/lu";
-
+import usersJson from "@/assets/data/users.json";
 export const GlobalProvider = ({children}) => {
     const [user, setUser] = useState(() => {
         const storedUser = sessionStorage.getItem("user");
@@ -25,7 +25,8 @@ export const GlobalProvider = ({children}) => {
         if (local) {
             setUsers(JSON.parse(local));
         } else {
-            localStorage.setItem("allUsers", JSON.stringify(users));
+            localStorage.setItem("allUsers", JSON.stringify(usersJson));
+            setUsers(JSON.parse(usersJson));
         }
     }, []);
 

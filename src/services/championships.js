@@ -16,7 +16,7 @@ const getChampionships = () => {
         })
         .then(championships => {
             // localStorage.setItem("championships", JSON.stringify(championships));
-            return championships.filter((c) => c.championship.public);
+            return championships
         }).catch(err => {
             console.error(err)
             toast.error("Erro ao buscar os campeonatos!")

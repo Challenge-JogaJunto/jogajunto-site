@@ -12,8 +12,9 @@ export default function MyChampionships() {
     const [championShips, setChampionShips] = useState([]);
     const fetchChampionShips = async () => {
         const response = await getChampionships();
-        setChampionShips(response);
-
+        setChampionShips(response.filter((champion) => champion.organizer.id === user.id));
+        console.log(response);
+        console.log(user)
     }
     useEffect(() => {
         fetchChampionShips();
@@ -41,7 +42,7 @@ export default function MyChampionships() {
                                                         icon={<FaEdit/>}
                                                         tooltip={"Editar campeonato"}/>
                                             <IconButton btnName={`gerenciar-campeonato-${championship.id}`}
-                                                        icon={<FaGears />}
+                                                        icon={<FaGears/>}
                                                         tooltip={"Gerenciar campeonato"}/>
                                         </div>
                                     </div>

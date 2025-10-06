@@ -69,7 +69,7 @@ export const GlobalProvider = ({children}) => {
             url: "/planos",
         },
         {
-            name: "Dashboard",
+            name: "Meu painel",
             url: "/dashboard",
         },
     ];

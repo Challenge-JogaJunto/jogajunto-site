@@ -7,11 +7,11 @@ export default function DashboardLayout() {
     const {screenWidth, dashboardLinks} = useGlobal();
     return (
         <>
-            <div className="flex gap-3 items-start">
+            <div className="flex gap-5 items-start">
 
                 {
                     screenWidth >= 1024 &&
-                    <ContainerDiv className={"px-4 "}>
+                    <ContainerDiv className={"px-4 sticky-top gap-5"}>
                         <ul className={`flex flex-col my-4`}>
                             {[{
                                 name: "Dashboard",
@@ -27,7 +27,7 @@ export default function DashboardLayout() {
                                         >
                                             <span style={{fontSize: "1.5rem"}}>{link.icon}</span>
                                             {link.name}
-                                        </NavLink >
+                                        </NavLink>
                                     </li>
                                 );
                             })}
@@ -35,6 +35,7 @@ export default function DashboardLayout() {
 
                     </ContainerDiv>
                 }
+
                 <Outlet/>
             </div>
         </>

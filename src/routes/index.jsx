@@ -9,6 +9,7 @@ import AllEvents from "@/pages/AllEvents/index.jsx";
 import Championship from "@/pages/Championship/index.jsx";
 import DashboardLayout from "@/layouts/DashboardLayout.jsx";
 import MyChampionships from "@/pages/dashboard/MyChampionships/index.jsx";
+import FormCampeonato from "@/pages/dashboard/FormCampeonato/index.jsx";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +24,9 @@ const router = createBrowserRouter([
             {
                 path: "dashboard", element: <DashboardLayout/>,
                 children: [
-                    {path: "campeonatos", element: <MyChampionships/>}
+                    {index: true, element: <>Dashboard</>},
+                    {path: "campeonatos", element: <MyChampionships/>},
+                    {path: "form-campeonato/:id?", element: <FormCampeonato/>}
                 ]
             },
         ],

@@ -6,6 +6,7 @@ import {FaEdit} from "react-icons/fa";
 import Button from "@/components/form/Button/index.jsx";
 import {FaGears} from "react-icons/fa6";
 import useGlobal from "@/hooks/useGlobal.js";
+import {useNavigate} from "react-router-dom";
 
 export default function MyChampionships() {
     const {user} = useGlobal()
@@ -13,9 +14,8 @@ export default function MyChampionships() {
     const fetchChampionShips = async () => {
         const response = await getChampionships();
         setChampionShips(response.filter((champion) => champion.organizer.id === user.id));
-        console.log(response);
-        console.log(user)
     }
+    const navigate = useNavigate();
     useEffect(() => {
         fetchChampionShips();
     }, [])
@@ -38,12 +38,18 @@ export default function MyChampionships() {
                                         </h3>
                                         <div className="flex flex-wrap items-center gap-2">
 
-                                            <IconButton btnName={`editar-campeonato-${championship.id}`}
-                                                        icon={<FaEdit/>}
-                                                        tooltip={"Editar campeonato"}/>
-                                            <IconButton btnName={`gerenciar-campeonato-${championship.id}`}
-                                                        icon={<FaGears/>}
-                                                        tooltip={"Gerenciar campeonato"}/>
+                                            <IconButton
+                                                btnName={`editar-campeonato-${championship.id}`}
+                                                icon={<FaEdit/>}
+                                                tooltip={"Editar campeonato"}
+                                                onClick={() => {
+                                                    navigate(`/dashboard/form-campeonato/${championship.id}`);
+                                                }}
+                                            />
+                                            <IconButton
+                                                btnName={`gerenciar-campeonato-${championship.id}`}
+                                                icon={<FaGears/>}
+                                                tooltip={"Gerenciar campeonato"}/>
                                         </div>
                                     </div>
 

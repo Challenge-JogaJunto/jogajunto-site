@@ -124,7 +124,7 @@ function ChampionshipDetails({resource}) {
 }
 
 
-function ChampionshipSuspense() {
+export function ChampionshipSuspense() {
     return (
         <>
             <ContainerDiv className={"flex "}>

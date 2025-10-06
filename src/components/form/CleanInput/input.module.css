@@ -1,0 +1,67 @@
+.input_container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  color: var(--texto);
+  gap: 0.4rem;
+  position: relative;
+  margin-top: 1.6rem;
+
+  & input {
+    width: 100% !important;
+    border: 1px solid var(--borda-container);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    outline: none;
+    font-weight: 500;
+    &:disabled {
+      background: rgb(235, 235, 235);
+    }
+  }
+  & label {
+    position: absolute;
+    top: -1.6rem;
+  }
+  & .icon {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    right: 0;
+    margin-right: 10px;
+    font-size: 25px;
+  }
+  &.error > input {
+    border: 1px solid var(--error) !important;
+    &:focus {
+      border: 2px solid var(--error) !important;
+    }
+  }
+}
+
+.customCalendar {
+  position: absolute;
+  width: fit-content;
+  min-width: 300px;
+  z-index: 99999;
+  display: none;
+  &.active {
+    display: block;
+  }
+  &.desactived {
+    display: none;
+  }
+}
+
+.customDatePicker {
+  width: 100%;
+}
+
+.errorMessage {
+  color: var(--error);
+  position: absolute;
+  bottom: -1.2rem;
+  left: 0;
+  font-size: 12px !important;
+  font-weight: 500;
+  font-family: var(--ff-text);
+}

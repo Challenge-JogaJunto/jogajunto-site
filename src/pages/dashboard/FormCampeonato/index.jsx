@@ -30,12 +30,12 @@ export default function FormCampeonato() {
 
 
 export function FormDetail({resource}) {
-    const [form, setForm] = useState({title: "", description: ""});
+    const [form, setForm] = useState({title: "", description: "", public: "true"});
     const {handleChange} = new FormTools()
     const championship = resource.read();
     useEffect(() => {
-        if (resource) {
-
+        if (championship) {
+            setForm(championship);
         }
     }, [championship]);
 
@@ -51,12 +51,23 @@ export function FormDetail({resource}) {
                 }}
                 />
                 <div className="flex flex-col gap-3 items-start min-w-[400px] my-3 px-1">
-                    <CleanInput placeholder={"Titulo do campeonato"} type="text" onChange={handleChange}
-                                fontSize={"20px"} className={"subtitle"}/>
-                    <CleanInput placeholder={"Endereço do campeonato"} type="text" onChange={handleChange}
-                                icon={<FaMapMarkerAlt/>}/>
+                    <CleanInput
+                        placeholder={"Titulo do campeonato"}
+                        type="text"
+                        onChange={handleChange}
+                        fontSize={"20px"}
+                        className={"subtitle"}
+                    />
+                    <CleanInput
+                        placeholder={"Endereço do campeonato"}
+                        type="text"
+                        onChange={handleChange}
+                        icon={<FaMapMarkerAlt/>}
+                    />
                     <Select
                         label={"Privacidade do campeonato"}
+                        value={form.public}
+                        onChange={handleChange}
                         options={[
                             {
                                 label: "Público",
@@ -66,7 +77,8 @@ export function FormDetail({resource}) {
                                 label: "Privado",
                                 id: "false"
                             },
-                        ]}/>
+                        ]}
+                    />
 
 
                 </div>

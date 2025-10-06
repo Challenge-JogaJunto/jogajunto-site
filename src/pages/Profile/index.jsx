@@ -19,7 +19,7 @@ export default function Profile() {
     altura: "",
     peso: "",
     idade: "",
-    img: "", // adicionando img ao form
+    img: "", 
   });
 
   const [imgPreview, setImgPreview] = useState(user?.img ?? defaultUser);
@@ -27,7 +27,7 @@ export default function Profile() {
   useEffect(() => {
     if (!user) navigate("/login");
 
-    // Preencher form com dados do usuário
+
     if (user) {
       setForm({
         nome: user.nome || "",
@@ -47,7 +47,6 @@ export default function Profile() {
     setForm((prev) => ({ ...prev, [id]: value }));
   };
 
-  // Função para alterar a foto
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -65,9 +64,6 @@ export default function Profile() {
   return (
     <>
       <ContainerDiv className="p-0 flex flex-col min-h-[100vh] bg-white rounded-lg overflow-hidden">
-        {/* <div className="bg-[var(--primaria)] text-white text-lg font-extralight p-6">
-          Bem-vindo, {user.nome || "Usuário Teste"}!
-        </div> */}
 
         <div className="flex flex-col md:flex-row flex-1">
           <div className="w-full md:w-[250px] bg-[var(--fundo)] border-r flex flex-col items-center py-8">
@@ -113,7 +109,6 @@ export default function Profile() {
             </button>
           </div>
 
-          {/* Formulário */}
           <div className="flex-1 bg-[var(--container)] px-10 py-8 flex flex-col justify-center">
             <h2 className="text-[var(--primaria)] subtitle font-semibold mb-8">
               Dados Pessoais

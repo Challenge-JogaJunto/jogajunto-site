@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {GlobalContext} from "../hooks/useGlobal";
 import {LuGitFork} from "react-icons/lu";
 import usersJson from "@/assets/data/users.json";
+
 export const GlobalProvider = ({children}) => {
     const [user, setUser] = useState(() => {
         const storedUser = sessionStorage.getItem("user");
@@ -59,10 +60,6 @@ export const GlobalProvider = ({children}) => {
         {
             name: "Explorar",
             url: "/",
-        },
-        {
-            name: "Sobre nós",
-            url: "/sobre-nos",
         },
 
         {

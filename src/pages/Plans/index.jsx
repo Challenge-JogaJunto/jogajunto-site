@@ -12,31 +12,40 @@ export default function Plans() {
             <p className={"m-1"}>Assine um de nossos planos e obtenha oportunidades exclusivas! Mais visibilidade, mais ferramentas, mais organização, mais jogo!</p>
             <div className={"border border-solid border-[#6E3B96] rounded-lg text-start p-6 text-[16px] font-light"}>
                 <h2 className={"font-semibold color text-[#6E3B96] text-2xl"}>JOGA JUNTO PREMIUM</h2>
-                <p>Obtenha mais ferramentas, métricas e funcionalidades para organização, gerenciamento e criação de conteúdos do seu clube!</p>
-                <IoCalendarOutline/>
-                <p>Peneiras e campeonatos ilimitados</p>
-                <IoBarChartOutline/>
-                <p>Mais ferramentas e métricas</p>
-                <FaEye/>
-                <p>Mais visibilidade</p>
-                <FiHeadphones />
-                <p>Comunidade e suporte dedicado</p>
-                <GoCheckCircle />
-                <p>Anúncios bloqueados</p>
-            </div>
-            <div className={"flex align-items-center justify-center gap-15 "}>
-                <div className={"border border-solid border-[#6E3B96] rounded-lg "}>
-                    <h1>Mensal</h1>
-                    <p>Plano Anual</p>
-                    <p>R$ 15,00 / mês</p>
-                    <p>R$ 20,00 no plano mensal</p>
-                    <Button/>
+                <p className={"mb-1 mt-1"}>Obtenha mais ferramentas, métricas e funcionalidades para organização, gerenciamento e criação de conteúdos do seu clube!</p>
+                <div className={" flex items-center m-3 text-[14px]"}>
+                    <IoCalendarOutline/>
+                    <p className={"ml-2"}>Peneiras e campeonatos ilimitados</p>
                 </div>
-                <div>
-                    <h1>Anual</h1>
-                    <p>Plano Anual</p>
-                    <p>R$ 35,00/mês</p>
-                    <p>R$ 40,00 no plano mensal</p>
+                <div className={"flex items-center m-3 text-[14px]"}>
+                    <IoBarChartOutline/>
+                    <p className={"ml-2"}>Mais ferramentas e métricas</p>
+                </div>
+                <div className={"flex items-center m-3 text-[14px]"}>
+                    <FaEye/>
+                    <p className={"ml-2"}>Mais visibilidade</p>
+                </div>
+                <div className={"flex items-center m-3 text-[14px]"}>
+                    <FiHeadphones />
+                    <p className={"ml-2"}>Comunidade e suporte dedicado</p>
+                </div>
+                <div className={"flex items-center m-3 text-[14px]"}>
+                    <GoCheckCircle />
+                    <p className={"ml-2"}>Anúncios bloqueados</p>
+                </div>
+            </div>
+            <div className={"flex align-items-center justify-center gap-15 mt-4 font-light"}>
+                <div className={"border-2 border-solid border-[#6E3B96] rounded-md w-[500px] p-3"}>
+                    <h1 className={"mb-2 text-[#6E3B96] font-semibold text-[25px]"}>Mensal</h1>
+                    <p className={"font-bold text-[#6E3B96] text-[12px] mt-4"}>Plano Anual</p>
+                    <p className={"text-[24px] font-bold mt-1 mb-1"}> R$ 15,00 / mês</p>
+                    <Button>Assine Agora</Button>
+                </div>
+                <div className={"w-[500px] border-2 border-solid border-[#59C9A5] rounded-md p-3"}>
+                    <h1 className={"mb-2 text-[#59C9A5] font-semibold text-[25px]"}>Anual</h1>
+                    <p className={"font-bold text-[12px] text-[#59C9A5] mt-4"}>Plano Anual</p>
+                    <p className={"text-[24px] font-bold mt-1 mb-1"}>R$ 35,00/mês</p>
+                    <Button>Assine Agora</Button>
                 </div>
             </div>
         </div>

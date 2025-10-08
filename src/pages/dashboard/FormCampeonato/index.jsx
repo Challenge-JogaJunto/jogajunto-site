@@ -1,7 +1,7 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {Suspense, useEffect, useMemo, useState} from "react";
 import wrapPromise from "@/utils/wrapPromise.js";
-import {getChampionshipById} from "@/services/championships.js";
+import {createChampionship, getChampionshipById, updateChampionship} from "@/services/championships.js";
 import {ErrorFallback} from "@/components/ErrorFallback/index.jsx";
 import {ChampionshipSuspense} from "@/pages/Championship/index.jsx";
 import {ErrorBoundary} from "react-error-boundary";
@@ -16,10 +16,14 @@ import InputField from "@/components/form/Input/index.jsx";
 import Button from "@/components/form/Button/index.jsx";
 import {FaXmark} from "react-icons/fa6";
 import DefaultModal from "@/components/Dialog/index.jsx";
+import {toast} from "react-toastify";
+import {v4 as uuidv4} from 'uuid';
+import useGlobal from "@/hooks/useGlobal.js";
 
 export default function FormCampeonato() {
     const {id} = useParams();
     const resource = useMemo(() => {
+        if (!id) return null;
         return wrapPromise(getChampionshipById(id));
     }, [id]);
 
@@ -36,6 +40,7 @@ export default function FormCampeonato() {
 
 
 export function FormDetail({resource}) {
+    const {user} = useGlobal()
     const [form, setForm] = useState({
         title: "",
         description: "",
@@ -48,7 +53,9 @@ export function FormDetail({resource}) {
     const [newLink, setNewLink] = useState({label: "", url: ""});
     const [openLink, setOpenLink] = useState(false);
     const formToolsLink = new FormTools(newLink, setNewLink);
-    const {championship, organizer} = resource.read();
+    const navigate = useNavigate();
+    const result = resource ? resource.read() : {};
+    const {championship, organizer} = result ?? {}
     useEffect(() => {
         if (championship) {
             setForm({
@@ -62,29 +69,76 @@ export function FormDetail({resource}) {
         }
     }, [championship]);
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!championship) {
+            console.log("create")
+
+            createChampionship({
+                championship: {
+                    ...form,
+                    id: uuidv4(),
+                    location: {
+                        address: form.location,
+                    }
+                },
+                organizer: {
+                    id: user.id,
+                    name: user.nome,
+                    contactEmail: user.email,
+                    logo: user.img,
+                },
+            })
+        } else {
+            console.log("update")
+            updateChampionship({
+                championship: {
+                    ...championship,
+                    ...form,
+                    id: championship.id,
+                    location: {
+                        address: form.location,
+                    }
+                },
+                organizer: {
+                    id: user.id,
+                    name: user.nome,
+                    contactEmail: user.email,
+                    logo: user.img,
+                },
+            }, championship.id);
+        }
+        toast.success(`Campeonato ${championship ? "atualizado" : "criado"} com sucesso!`);
+        navigate("/dashboard/campeonatos")
+    }
+
     return (
         <>
-            <form className={"w-full text-[var(--texto)]"}>
+            <form className={"w-full text-[var(--texto)]"} onSubmit={handleSubmit}>
                 <ContainerDiv className={"w-full flex flex-col lg:flex-row gap-1 overflow-hidden"}>
-                    <InputImage adicionalStyle={{
-                        margin: "0",
-                        width: "100%",
-                        background: "lightgrey",
-                        borderRadius: 0,
-                        aspectRatio: 16 / 9
-                    }} image={form.image}
-                               setImage={setForm}
+                    <InputImage
+                        adicionalStyle={{
+                            margin: "0",
+                            width: "100%",
+                            background: "lightgrey",
+                            borderRadius: 0,
+                            aspectRatio: 16 / 9
+                        }}
+                        image={form.image}
+                        setImage={(val) => setForm({...form, image: val})}
                     />
                     <div className="flex flex-col gap-3 items-start min-w-[400px] my-3 px-5">
                         <CleanInput
                             placeholder={"Titulo do campeonato"}
                             type="text"
+                            id={"title"}
                             onChange={handleChange}
                             fontSize={"20px"}
                             className={"subtitle"}
                             value={form.title}
                         />
                         <CleanInput
+                            id={"location"}
                             placeholder={"Endereço do campeonato"}
                             type="text"
                             value={form.location}

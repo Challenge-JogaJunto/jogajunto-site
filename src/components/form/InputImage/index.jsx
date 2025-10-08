@@ -41,7 +41,7 @@ const ImageUploader = ({
         } else {
             setImageUrl(null);
         }
-    }, [image]);
+    }, []);
 
     return (
         <div

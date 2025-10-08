@@ -144,49 +144,72 @@ export default function Home() {
                 isOpen={dialogPub}
                 onClose={() => setDialogPub(false)}
                 size="[1024px]"
-            >
+                >
                 <div className="flex flex-col">
-                    <h2 className="subtitle">Crie uma nova publicação</h2>
+                    <h2 className="subtitle text-[var(--primaria)] pb-3 mb-5">
+                    Crie uma nova publicação
+                    </h2>
+
                     <form
-                        className="mt-7 flex flex-wrap gap-3"
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            toast.success("Publicação criada com sucesso!");
-                            Object.keys(form).forEach((item) => {
-                                setForm((prev) => {
-                                    return {...prev, [item]: ""};
-                                });
-                            });
-                            setDialogPub(false);
-                        }}
+                    className="flex flex-col lg:flex-row gap-8"
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        toast.success("Publicação criada com sucesso!");
+                        Object.keys(form).forEach((item) => {
+                        setForm((prev) => ({ ...prev, [item]: "" }));
+                        });
+                        setDialogPub(false);
+                    }}
                     >
-                        <ImageUploader
-                            id={"img"}
-                            label={"Imagem da publicação"}
-                            adicionalStyle={{aspectRatio: 3 / 4, width: "320px"}}
-                        />
+                    <div className="flex items-center justify-center lg:w-[40%] w-full">
+                        <div className="flex items-center justify-center border-2 border-[var(--primaria)] rounded-2xl p-3 w-full max-w-[320px] mx-auto">
+                            <ImageUploader
+                                id="img"
+                                label=""
+                                adicionalStyle={{
+                                aspectRatio: 3 / 4,
+                                width: "100%",
+                                borderRadius: "12px",
+                                }}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col flex-1 gap-4 ">
                         <InputField
-                            type="text"
-                            label={"Titulo da publicação"}
-                            id={"titulo_pub"}
-                            value={form.titulo_pub}
-                            onChange={handleChange}
-                            placeholder="Faça uma publicação"
+                        type="text"
+                        label="Título da publicação"
+                        id="titulo_pub"
+                        value={form.titulo_pub}
+                        onChange={handleChange}
+                        placeholder="Digite o título da publicação"
+                        className="text-[var(--primaria)] shadow-md"
                         />
+
                         <Textarea
-                            label={"Titulo da publicação"}
-                            id={"descricao"}
-                            height="320px"
-                            value={form.descricao}
-                            onChange={handleChange}
-                            placeholder="Conteúdo da publicação"
+                        label="Descrição da publicação"
+                        id="descricao"
+                        height="320px"
+                        value={form.descricao}
+                        onChange={handleChange}
+                        placeholder="Conteúdo da publicação"
+                        className="text-[var(--primaria)] shadow-md"
                         />
-                        <Button type="submit" variant={"primary"} margin={"0 0 0 auto"}>
+
+                        <div className="flex justify-end">
+                        <Button
+                            type="submit"
+                            variant="primary"
+                            className="bg-[var(--primaria)] text-white px-6 py-2 rounded-lg hover:opacity-90 transition-all"
+                        >
                             Publicar
                         </Button>
+                        </div>
+                    </div>
                     </form>
                 </div>
-            </DefaultModal>
+                </DefaultModal>
+
             {selPost && (
                 <DefaultModal
                 isOpen={selPost ? true : false}

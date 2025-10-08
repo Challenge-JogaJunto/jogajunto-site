@@ -23,11 +23,12 @@ const router = createBrowserRouter([
             {path: "search", element: <></>},
             {path: "profile", element: <Profile/>},
             {path: "eventos", element: <AllEvents/>},
+            {path: "planos", element: <Plans/>},
             {path: "championship/:id", element: <Championship/>},
             {
                 path: "dashboard", element: <DashboardLayout/>,
                 children: [
-                    {index: true, element: <>Dashboard</>},
+                    {index: true, element: <Dashboard/>},
                     {path: "campeonatos", element: <MyChampionships/>},
                     {path: "form-campeonato/:id?", element: <FormCampeonato/>},
                     {path: "gestaoCamp/:id", element: <GestaoCampeonato/>}

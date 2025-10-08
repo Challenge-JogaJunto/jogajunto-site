@@ -11,6 +11,10 @@ import {FormTools} from "../../utils/formTools";
 import ImageUploader from "../../components/form/InputImage";
 import {toast} from "react-toastify";
 import {fetchPosts} from "@/services/posts.js";
+import { AiFillLike } from "react-icons/ai";
+import { BiCommentDetail } from "react-icons/bi";
+import { FaShare } from "react-icons/fa";
+import { IoIosSend } from "react-icons/io";
 
 export default function Home() {
     const [form, setForm] = useState({
@@ -140,105 +144,166 @@ export default function Home() {
                 isOpen={dialogPub}
                 onClose={() => setDialogPub(false)}
                 size="[1024px]"
-            >
+                >
                 <div className="flex flex-col">
-                    <h2 className="subtitle">Crie uma nova publicação</h2>
+                    <h2 className="subtitle text-[var(--primaria)] pb-3 mb-5">
+                    Crie uma nova publicação
+                    </h2>
+
                     <form
-                        className="mt-7 flex flex-wrap gap-3"
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            toast.success("Publicação criada com sucesso!");
-                            Object.keys(form).forEach((item) => {
-                                setForm((prev) => {
-                                    return {...prev, [item]: ""};
-                                });
-                            });
-                            setDialogPub(false);
-                        }}
+                    className="flex flex-col lg:flex-row gap-8"
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        toast.success("Publicação criada com sucesso!");
+                        Object.keys(form).forEach((item) => {
+                        setForm((prev) => ({ ...prev, [item]: "" }));
+                        });
+                        setDialogPub(false);
+                    }}
                     >
-                        <ImageUploader
-                            id={"img"}
-                            label={"Imagem da publicação"}
-                            adicionalStyle={{aspectRatio: 3 / 4, width: "320px"}}
-                        />
+                    <div className="flex items-center justify-center lg:w-[40%] w-full">
+                        <div className="flex items-center justify-center border-2 border-[var(--primaria)] rounded-2xl p-3 w-full max-w-[320px] mx-auto">
+                            <ImageUploader
+                                id="img"
+                                label=""
+                                adicionalStyle={{
+                                aspectRatio: 3 / 4,
+                                width: "100%",
+                                borderRadius: "12px",
+                                }}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col flex-1 gap-4 ">
                         <InputField
-                            type="text"
-                            label={"Titulo da publicação"}
-                            id={"titulo_pub"}
-                            value={form.titulo_pub}
-                            onChange={handleChange}
-                            placeholder="Faça uma publicação"
+                        type="text"
+                        label="Título da publicação"
+                        id="titulo_pub"
+                        value={form.titulo_pub}
+                        onChange={handleChange}
+                        placeholder="Digite o título da publicação"
+                        className="text-[var(--primaria)] shadow-md"
                         />
+
                         <Textarea
-                            label={"Titulo da publicação"}
-                            id={"descricao"}
-                            height="320px"
-                            value={form.descricao}
-                            onChange={handleChange}
-                            placeholder="Conteúdo da publicação"
+                        label="Descrição da publicação"
+                        id="descricao"
+                        height="320px"
+                        value={form.descricao}
+                        onChange={handleChange}
+                        placeholder="Conteúdo da publicação"
+                        className="text-[var(--primaria)] shadow-md"
                         />
-                        <Button type="submit" variant={"primary"} margin={"0 0 0 auto"}>
+
+                        <div className="flex justify-end">
+                        <Button
+                            type="submit"
+                            variant="primary"
+                            className="bg-[var(--primaria)] text-white px-6 py-2 rounded-lg hover:opacity-90 transition-all"
+                        >
                             Publicar
                         </Button>
+                        </div>
+                    </div>
                     </form>
                 </div>
-            </DefaultModal>
+                </DefaultModal>
+
             {selPost && (
                 <DefaultModal
-                    isOpen={selPost ? true : false}
-                    onClose={() => setSelPost(null)}
-                    size="[var(--max-content)]"
+                isOpen={selPost ? true : false}
+                onClose={() => setSelPost(null)}
+                size="[var(--max-content)]"
                 >
-                    <div className="flex flex-row-reverse flex-wrap lg:flex-nowrap">
-                        <div className="w-full px-5">
-                            <div className="flex gap-3 items-center">
-                                <img
-                                    src={user ? user.img ?? defaultUser : defaultUser}
-                                    className="w-[50px] rounded-full"
-                                    alt="Imagem do usuário"
-                                />
-                                <h3 className="title" style={{fontSize: "20px"}}>
-                                    {selPost.autor.nome}
-                                </h3>
-                            </div>
-                            <div className="flex justify-between items-center gap-4 my-5">
-                                <p className="text">
-                                    {collapsed
-                                        ? selPost.descricao.slice(0, 300)
-                                        : selPost.descricao}
-                                    <br/>
-                                    <span
-                                        className="link text-[var(--primaria)] cursor-pointer"
-                                        onClick={() => setCollaped(!collapsed)}
-                                    >
-                    {collapsed ? "Ver mais" : "Ver menos"}
-                  </span>
-                                </p>
-                            </div>
-                            <div>
-                                <hr className="border-[var(--primaria)]"/>
-                                <div className="flex items-center gap-3 mt-4">
-                                    <img
-                                        src={user ? user.img ?? defaultUser : defaultUser}
-                                        className="w-[50px] rounded-full"
-                                        alt="Imagem do usuário"
-                                    />
-                                    <InputField
-                                        type="text"
-                                        id={"comment"}
-                                        placeholder="Faça um comentário"
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                <div className="flex flex-col lg:flex-row w-full h-[90vh] rounded-lg overflow-hidden">
+                    <div className="flex-1 bg-neutral-900 flex items-center justify-center rounded-lg">
                         <img
                             src={`./pubs/pub-4.png`}
                             alt="imagem da publicação"
-                            className="w-full max-w-[600px] object-cover"
-                            style={{aspectRatio: 1 / 1}}
+                            className="object-contain max-h-full max-w-full"
                         />
                     </div>
+                    <div className="flex flex-col w-full lg:w-[45%] bg-white p-6 overflow-y-auto">
+                    
+                    <div className="flex items-center gap-3 mb-5">
+                        <img
+                        src={user ? user.img ?? defaultUser : defaultUser}
+                        className="w-[50px] h-[50px] rounded-full object-cover"
+                        alt="Imagem do usuário"
+                        />
+                        <h3 className="text-xl font-semibold text-gray-800">
+                        {selPost.autor.nome}
+                        </h3>
+                    </div>
+                    <div className="flex justify-between items-center gap-4 my-5">
+                        <p className="text">
+                            {collapsed? selPost.descricao.slice(0, 300) : selPost.descricao}
+                            <br />
+                            <span className="link text-[var(--primaria)] cursor-pointer" onClick={() => setCollaped(!collapsed)}>
+                            {collapsed ? "Ver mais" : "Ver menos"}
+                            </span>
+                        </p>
+                    </div>
+                    <div className="flex justify-between border-t border-b py-3 text-gray-600">
+                        <button className="flex-1 flex justify-center items-center gap-1 text-[var(--primaria)] hover:text-[var(--secundaria-hover)] transition">
+                            <AiFillLike />
+                            <i className="fa-regular fa-thumbs-up"></i> Gostei
+                        </button>
+                        <button className="flex-1 flex justify-center items-center gap-1 text-[var(--primaria)] hover:text-[var(--secundaria-hover)] transition">
+                            <BiCommentDetail />
+                            <i className="fa-regular fa-comment"></i> Comentar
+                        </button>
+                        <button className="flex-1 flex justify-center items-center gap-1 text-[var(--primaria)] hover:text-[var(--secundaria-hover)] transition">
+                            <FaShare />
+                            <i className="fa-regular fa-share-from-square"></i> Compartilhar
+                        </button>
+                        <button className="flex-1 flex justify-center items-center gap-1 text-[var(--primaria)] hover:text-[var(--secundaria-hover)] transition">
+                            <IoIosSend />
+                            <i className="fa-regular fa-paper-plane"></i> Enviar
+                        </button>
+                    </div>
+
+                    <div className="mt-6">
+                        <h4 className="font-semibold text-gray-800 mb-3">Comentários</h4>
+
+                        <div className="flex items-center gap-3 mb-4">
+                        <img
+                            src={user ? user.img ?? defaultUser : defaultUser}
+                            className="w-[40px] h-[40px] rounded-full object-cover"
+                            alt="Imagem do usuário"
+                        />
+                        <InputField
+                            type="text"
+                            id="comment"
+                            placeholder="Faça um comentário..."
+                        />
+                        </div>
+
+                        <div className="space-y-3">
+                        <div className="flex gap-3">
+                            <img src={defaultUser} className="w-[35px] h-[35px] rounded-full" alt="" />
+                            <div className="bg-gray-100 p-3 rounded-lg flex-1">
+                            <p className="text-sm text-gray-800">
+                                <span className="font-medium">João:</span> Muito bom esse post!
+                            </p>
+                            </div>
+                        </div>
+
+                        <div className="flex gap-3">
+                            <img src={defaultUser} className="w-[35px] h-[35px] rounded-full" alt="" />
+                            <div className="bg-gray-100 p-3 rounded-lg flex-1">
+                            <p className="text-sm text-gray-800">
+                                <span className="font-medium">Maria:</span> Amei a imagem 😍
+                            </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
                 </DefaultModal>
+
             )}
         </>
     );

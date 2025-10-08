@@ -56,6 +56,64 @@ export function FormDetail({resource}) {
     const navigate = useNavigate();
     const result = resource ? resource.read() : {};
     const {championship, organizer} = result ?? {}
+    let baseChampionship = {
+        championship: {
+            id: 1024,
+            slug: "campeonato-municipal-feminino-2ed",
+            title: "2º Campeonato Municipal de Futebol Feminino Amador",
+            shortTitle: "Campeonato Municipal - 2ª Edição",
+            subtitle: "7 e 8 de Dezembro",
+            description: "Campeonato amador voltado para times femininos municipais. Formato mata-mata com premiação para as 3 primeiras colocadas.",
+            format: "Mata Mata",
+            status: "upcoming",
+            public: false,
+            startDate: "2025-12-07T08:00:00-03:00",
+            endDate: "2025-12-08T18:00:00-03:00",
+            coverImage: "https://ritmo-images.s3.amazonaws.com/images/Publicacoes/Noticia/8315.jpeg",
+            gallery: [
+                "https://www.futedelas.com.br/wp-content/uploads/2023/10/Futebol-Feminino-Jogadoras-2-scaled.jpg.webp",
+                "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/esportes/M.jpg"
+            ],
+            links: [
+                {
+                    label: "Comprar ingressos",
+                    url: "https://ingressos.com.br/evento/1024"
+                }
+            ],
+            location: {
+                venue: "Clube - SindiGoiânia",
+                address: "Rua Teste, 123, Goiânia, GO, Brasil",
+                postalCode: "00000-000",
+                coordinates: {
+                    lat: -16.6789,
+                    lng: -49.255
+                }
+            },
+            capacity: 500,
+            registrations: {
+                teamsRegistered: 8,
+                playersRegistered: 120,
+                expectedAudience: 200
+            },
+            tickets: [
+                {
+                    type: "Entrada Geral",
+                    price: 15.0,
+                    currency: "BRL",
+                    url: "https://ingressos.com.br/evento/1024/geral"
+                }
+            ],
+            createdAt: "2025-09-20T10:15:00-03:00",
+            updatedAt: "2025-09-25T09:00:00-03:00"
+        },
+        organizer: {
+            id: 55,
+            name: "SindiGoiânia",
+            contactEmail: "contato@sindigoiania.org.br",
+            logo: "https://www.futebolbh.com.br/portal/images/jmfem207%20(2).jpeg",
+            website: "https://www.ecp.org.br/"
+        }
+    }
     useEffect(() => {
         if (championship) {
             setForm({
@@ -72,46 +130,67 @@ export function FormDetail({resource}) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!championship) {
-            console.log("create")
 
-            createChampionship({
+
+            const newId = uuidv4();
+
+            const createPayload = {
+                ...baseChampionship,
                 championship: {
+                    ...baseChampionship.championship,
                     ...form,
-                    id: uuidv4(),
+                    id: newId,
+                    public: form.public === "true" || form.public === true,
+
                     location: {
-                        address: form.location,
-                    }
+                        ...baseChampionship.championship.location,
+                        address: form.location || baseChampionship.championship.location.address
+                    },
+                    coverImage: form.image || baseChampionship.championship.coverImage,
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
                 },
                 organizer: {
+                    ...baseChampionship.organizer,
                     id: user.id,
                     name: user.nome,
                     contactEmail: user.email,
-                    logo: user.img,
-                },
-            })
+                    logo: user.img ?? baseChampionship.organizer.logo
+                }
+            };
+
+            createChampionship(createPayload);
+
         } else {
-            console.log("update")
-            updateChampionship({
+
+            const updatePayload = {
                 championship: {
                     ...championship,
                     ...form,
                     id: championship.id,
+                    public: form.public === "true" || form.public === true,
                     location: {
-                        address: form.location,
-                    }
+                        ...championship.location,
+                        address: form.location ?? championship.location.address
+                    },
+                    coverImage: form.image || championship.coverImage,
+                    updatedAt: new Date().toISOString()
                 },
                 organizer: {
+                    ...organizer,
                     id: user.id,
                     name: user.nome,
                     contactEmail: user.email,
-                    logo: user.img,
-                },
-            }, championship.id);
-        }
-        toast.success(`Campeonato ${championship ? "atualizado" : "criado"} com sucesso!`);
-        navigate("/dashboard/campeonatos")
-    }
+                    logo: user.img ?? organizer.logo
+                }
+            };
 
+
+            updateChampionship(updatePayload, championship.id);
+            toast.success(`Campeonato ${championship ? "atualizado" : "criado"} com sucesso!`);
+            navigate("/dashboard/campeonatos")
+        }
+    }
     return (
         <>
             <form className={"w-full text-[var(--texto)]"} onSubmit={handleSubmit}>
@@ -203,7 +282,8 @@ export function FormDetail({resource}) {
                                                 onClick={() => {
                                                     setForm((prev) => {
                                                         return {
-                                                            ...prev, links: prev.links.filter((l, i) => i !== index),
+                                                            ...prev,
+                                                            links: prev.links.filter((l, i) => i !== index),
                                                         }
                                                     })
                                                 }}/>

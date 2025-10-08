@@ -24,8 +24,9 @@ const ImageUploader = ({
         setLoading(true);
 
         try {
-            setImageUrl(URL.createObjectURL(file));
-            setImage(file);
+            let url = URL.createObjectURL(file)
+            setImageUrl(url);
+            setImage(url);
         } catch (err) {
             setError("Erro ao processar a imagem. Tente novamente.");
             console.error(err);

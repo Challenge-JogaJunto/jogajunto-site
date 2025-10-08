@@ -2,13 +2,12 @@ import {useEffect, useState} from "react";
 import {GlobalContext} from "../hooks/useGlobal";
 import {LuGitFork} from "react-icons/lu";
 import usersJson from "@/assets/data/users.json";
+
 export const GlobalProvider = ({children}) => {
     const [user, setUser] = useState(() => {
         const storedUser = sessionStorage.getItem("user");
         return storedUser ? JSON.parse(storedUser) : null;
     });
-
-
     const [loading, setLoading] = useState(false);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -21,9 +20,9 @@ export const GlobalProvider = ({children}) => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        const local = localStorage.getItem("allUsers");
-        if (local) {
-            setUsers(JSON.parse(local));
+        const localUsers = localStorage.getItem("allUsers");
+        if (localUsers) {
+            setUsers(JSON.parse(localUsers));
         } else {
             localStorage.setItem("allUsers", JSON.stringify(usersJson));
             setUsers(JSON.parse(usersJson));
@@ -59,10 +58,6 @@ export const GlobalProvider = ({children}) => {
         {
             name: "Explorar",
             url: "/",
-        },
-        {
-            name: "Sobre nós",
-            url: "/sobre-nos",
         },
 
         {

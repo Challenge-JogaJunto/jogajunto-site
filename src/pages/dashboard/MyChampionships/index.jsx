@@ -21,9 +21,11 @@ export default function MyChampionships() {
     }, [])
     return (
         <div className={"w-full"}>
-            <div className="flex w-full gap-3 flex-wrap">
+            <div className="flex w-full gap-3 flex-wrap justify-between">
                 <h1 className="subtitle text-[var(--texto)]">Meus campeonatos</h1>
-                <Button text/>
+                <Button variant={"primary"} onClick={() => navigate("/dashboard/form-campeonato/")}>
+                    Adicionar campeonato
+                </Button>
             </div>
 
             {(championShips && championShips.length > 0) ? (

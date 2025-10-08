@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {FaSpinner} from "react-icons/fa";
 import {MdOutlinePhotoCamera} from "react-icons/md";
 import styles from "./inputImage.module.css";
+import {toast} from "react-toastify";
 
 const ImageUploader = ({
                            image,
@@ -17,16 +18,23 @@ const ImageUploader = ({
 
     const handleFileUpload = async (e) => {
         const file = e.target.files?.[0];
-
         if (!file) return;
 
         setError(null);
         setLoading(true);
 
         try {
-            let url = URL.createObjectURL(file)
-            setImageUrl(url);
-            setImage(url);
+            const reader = new FileReader();
+            reader.onload = () => {
+                setImageUrl(reader.result);
+                setImage(reader.result)
+            };
+            reader.onerror = (err) => {
+                console.error("Erro ao ler imagem", err);
+                toast.error("Erro ao processar a imagem");
+            };
+            reader.readAsDataURL(file);
+
         } catch (err) {
             setError("Erro ao processar a imagem. Tente novamente.");
             console.error(err);

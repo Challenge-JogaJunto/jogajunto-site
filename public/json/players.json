@@ -1,0 +1,23 @@
+[
+  {
+    "id": "p-201",
+    "championshipId": 1025,
+    "name": "Marta",
+    "description": "Atacante titular e referência técnica.",
+    "img": "https://i.pravatar.cc/300?img=1"
+  },
+  {
+    "id": "p-202",
+    "championshipId": 1025,
+    "name": "Aline",
+    "description": "Meio-campista com ótima visão de jogo.",
+    "img": "https://i.pravatar.cc/300?img=2"
+  },
+  {
+    "id": "p-203",
+    "championshipId": 1025,
+    "name": "Bianca",
+    "description": "Goleira com reflexos rápidos.",
+    "img": "https://i.pravatar.cc/300?img=3"
+  }
+]

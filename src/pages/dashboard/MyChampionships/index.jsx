@@ -51,7 +51,11 @@ export default function MyChampionships() {
                                             <IconButton
                                                 btnName={`gerenciar-campeonato-${championship.id}`}
                                                 icon={<FaGears/>}
-                                                tooltip={"Gerenciar campeonato"}/>
+                                                tooltip={"Gerenciar campeonato"}
+                                                onClick={() => {
+                                                    navigate(`/dashboard/gestaoCamp/${championship.id}`);
+                                                }}/>
+
                                         </div>
                                     </div>
 

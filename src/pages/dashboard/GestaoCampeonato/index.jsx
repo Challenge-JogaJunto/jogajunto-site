@@ -11,6 +11,7 @@ import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs.jsx
 import DefaultModal from "@/components/Dialog/index.jsx";
 import Teams from "@/pages/dashboard/GestaoCampeonato/Teams.jsx";
 import Players from "@/pages/dashboard/GestaoCampeonato/Players.jsx";
+import Games from "@/pages/dashboard/GestaoCampeonato/Games.jsx";
 
 export default function GestaoCampeonato() {
     const {id} = useParams();
@@ -94,7 +95,9 @@ function GestaoCampeonatoDetails({resource}) {
                         <TabsContent value="geral">
                             <Teams championship={championship}/>
                         </TabsContent>
-                        <TabsContent value="partidas">Partidas</TabsContent>
+                        <TabsContent value="partidas">
+                            <Games championship={championship}/>
+                        </TabsContent>
                         <TabsContent value="jogadoras">
                             <Players championship={championship}/>
                         </TabsContent>

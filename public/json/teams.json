@@ -1,0 +1,30 @@
+[
+  {
+    "id": 201,
+    "championshipId": 1025,
+    "name": "Estrelas FC",
+    "description": "Equipe com foco na base e desenvolvimento juvenil.",
+    "image": "https://picsum.photos/seed/estrelas/200/200"
+  },
+  {
+    "id": 202,
+    "championshipId": 1025,
+    "name": "Valquírias",
+    "description": "Equipe tradicional da região, com grande torcida.",
+    "image": "https://picsum.photos/seed/valquirias/200/200"
+  },
+  {
+    "id": 203,
+    "championshipId": 1025,
+    "name": "Tigres",
+    "description": "Time de desempenho consistente nos últimos campeonatos.",
+    "image": "https://picsum.photos/seed/tigres/200/200"
+  },
+  {
+    "id": 204,
+    "championshipId": 1025,
+    "name": "Leonas",
+    "description": "Time jovem com boa preparação física.",
+    "image": "https://picsum.photos/seed/leonas/200/200"
+  }
+]

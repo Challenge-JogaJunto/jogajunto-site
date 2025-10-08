@@ -1,0 +1,62 @@
+[
+  {
+    "id": 301,
+    "championshipId": 1025,
+    "round": "Oitavas de final",
+    "teamAId": 201,
+    "teamBId": 202,
+    "scoreA": 2,
+    "scoreB": 1,
+    "date": "2025-10-15"
+  },
+  {
+    "id": 302,
+    "championshipId": 1025,
+    "round": "Oitavas de final",
+    "teamAId": 203,
+    "teamBId": 204,
+    "scoreA": 1,
+    "scoreB": 1,
+    "date": "2025-10-16"
+  },
+  {
+    "id": 303,
+    "championshipId": 1025,
+    "round": "Quartas de final",
+    "teamAId": 201,
+    "teamBId": 203,
+    "scoreA": 0,
+    "scoreB": 1,
+    "date": "2025-10-20"
+  },
+  {
+    "id": 304,
+    "championshipId": 1025,
+    "round": "Quartas de final",
+    "teamAId": 202,
+    "teamBId": 204,
+    "scoreA": 2,
+    "scoreB": 2,
+    "date": "2025-10-21"
+  },
+  {
+    "id": 305,
+    "championshipId": 1025,
+    "round": "Semifinal",
+    "teamAId": 203,
+    "teamBId": 201,
+    "scoreA": null,
+    "scoreB": null,
+    "date": "2025-10-25"
+  },
+  {
+    "id": 306,
+    "championshipId": 1025,
+    "round": "Final",
+    "teamAId": null,
+    "teamBId": null,
+    "scoreA": null,
+    "scoreB": null,
+    "date": "2025-10-30"
+  }
+]

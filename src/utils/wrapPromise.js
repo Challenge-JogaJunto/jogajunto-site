@@ -5,12 +5,12 @@ export default function wrapPromise(promise) {
     let suspender = promise
         .then((res) => {
             status = "success";
-            console.log(res)
+
             result = res;
         })
         .catch((err) => {
             status = "error";
-            console.log(err)
+
             result = err;
         });
     return {
